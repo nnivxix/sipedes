@@ -27,7 +27,7 @@
 
 					<?php
               $no = 1;
-			  $sql = $koneksi->query("SELECT l.id_lahir, l.nama, l.tempat_lh, l.tgl_lh, l.jekel, k.no_kk, k.kepala from 
+			  $sql = $koneksi->query("SELECT l.id_lahir, l.nama,  l.tgl_lh, l.jekel, k.no_kk, k.kepala from 
 			  tb_lahir l inner join tb_kk k on k.id_kk=l.id_kk");
               while ($data= $sql->fetch_assoc()) {
             ?>
@@ -38,9 +38,6 @@
 						</td>
 						<td>
 							<?php echo $data['nama']; ?>
-						</td>
-						<td>
-							<?php echo $data['tempat_lh']; ?>
 						</td>
 						<td>
 							<?php echo $data['tgl_lh']; ?>
@@ -60,7 +57,7 @@
 							<a href="?page=del-lahir&kode=<?php echo $data['id_lahir']; ?>" onclick="return confirm('Apakah anda yakin hapus data ini ?')"
 							 title="Hapus" class="btn btn-danger btn-sm">
 								<i class="fa fa-trash"></i>
-								</>
+								</a>
 						</td>
 					</tr>
 
