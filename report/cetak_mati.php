@@ -8,6 +8,17 @@
 
 	$tanggal = date("m/y");
 	$tgl = date("d/m/y");
+	// $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.id_pend) where tb_mendu.id_mendu = '$id'";
+			$sql_tampil = "SELECT
+			m.id_mendu, m.tgl_mendu, m.sebab,
+			p.nik, p.nama, p.tempat_lh, p.tgl_lh,  p.jekel, p.desa, p.rt, p.rw, p.agama, p.pekerjaan
+			from tb_mendu m inner join tb_pdd p
+			on m.id_pdd = p.id_pend
+			where id_mendu ='$id'";
+
+			$query_tampil = mysqli_query($koneksi, $sql_tampil);
+			$no=1;
+			while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +28,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
-	<title>Document</title>
+	<title>Surat Kematian <?php echo $data['nama']; ?></title>
 </head>
 <body>
 	<main>
@@ -34,20 +45,6 @@
 			</div>
 		</header>
 		<div class="line"></div>
-
-		<?php
-		// $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.id_pend) where tb_mendu.id_mendu = '$id'";
-			$sql_tampil = "SELECT
-			m.id_mendu, m.tgl_mendu, m.sebab,
-			p.nik, p.nama, p.tempat_lh, p.tgl_lh,  p.jekel, p.desa, p.rt, p.rw, p.agama, p.pekerjaan
-			from tb_mendu m inner join tb_pdd p
-			on m.id_pdd = p.id_pend
-			where id_mendu ='$id'";
-			
-			$query_tampil = mysqli_query($koneksi, $sql_tampil);
-			$no=1;
-			while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
-		?>
 		<div class="nomor__surat">
 			<h1 style="text-decoration: underline;">SURAT KETERANGAN KEMATIAN</h1>
 			<h2>Nomor : <?php echo $data['id_mendu']. "/Ket.Kematian/" . $tanggal; ?></h2>
@@ -99,7 +96,7 @@
 							<?php
 							$str_date = strtotime($data['tgl_lh']);
 							$date_tgl = date("d-m-Y", $str_date);
-							echo gettype($data['tgl_lh']);
+							//echo gettype($data['tgl_lh']);
 							 ?>
 							<td><?php echo $data['tempat_lh']. ", ". $date_tgl; ?></td>
 						</tr>
@@ -165,7 +162,7 @@
 				<tr>
 					<td>Tanggal</td>
 					<td style="padding: 0 3em;">:</td>
-					<td><?php echo $data['tgl_mendu']; ?></td>
+					<td><?php echo date("d-m-Y", strtotime($data['tgl_mendu'])); ?></td>
 				</tr>
 				<tr>
 					<td>Disebabkan Karena</td>
@@ -188,6 +185,10 @@
 			<p>Enip</p>
 		</div>
 	</main>
+
+	<script>
+		window.print()
+	</script>
 </body>
 </html>
 

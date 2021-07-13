@@ -11,7 +11,7 @@ $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.i
 ```
 
 - [ ] Surat Datang
-- [ ] Surat Domisili
+- [x] ~~Surat Domisili~~
 - [ ] Surat Lahir
-- ~~[x] Surat Mati~~
+- [x] ~~Surat Mati~~
 - [ ] Surat Pindah
