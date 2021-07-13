@@ -23,9 +23,7 @@
 							-
 							<?php echo $row['nama'] ?>
 						</option>
-						<?php
-				}
-				?>
+						<?php	}	?>
 					</select>
 				</div>
 			</div>
