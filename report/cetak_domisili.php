@@ -22,7 +22,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
-	<title>Document</title>
+	<title>Surat Keterangan Domisili <?php echo $data['nama']; ?></title>
 </head>
 <body>
 	<main>
@@ -41,7 +41,7 @@
 		<div class="line"></div>
 
 		<div class="nomor__surat">
-			<h1 style="text-decoration: underline;">SURAT KETERANGAN KEMATIAN</h1>
+			<h1 style="text-decoration: underline;">SURAT KETERANGAN DOMISILI</h1>
 			<h2>Nomor : <?php echo $data['id_pend']. " /Ket.Domisili/ " .$tanggal; ?></h2>
 		</div>
 

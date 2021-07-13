@@ -10,7 +10,7 @@ Join untuk Mendu
 $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.id_pend)";
 ```
 
-- [ ] Surat Datang
+- [x] Surat Datang
 - [x] ~~Surat Domisili~~
 - [ ] Surat Lahir
 - [x] ~~Surat Mati~~
