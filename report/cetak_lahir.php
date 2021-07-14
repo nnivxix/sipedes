@@ -6,16 +6,13 @@
 	}
 
 	$tanggal = date("m/y");
-	$tgl = date("d/m/y");
+	$tgl = date("d/M/y");
 	
 
 $sql_tampil = "select * from tb_lahir where id_lahir='$id'";
 $query_tampil = mysqli_query($koneksi, $sql_tampil);
 $no=1;
 while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
-
-
-
 ?>
 
 
@@ -26,7 +23,7 @@ while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
-	<title>Document</title>
+	<title>Surat Kelahiran <?php echo $data['nama']; ?></title>
 </head>
 <body>
 	<main>
@@ -59,24 +56,24 @@ while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
 							<td class="indent-colon" style="padding: 0 2.5em;">:</td>
 							<td>
 								<?php
-								$hari = getdate(date("U"));
+								$hari = date('l', $data['tgl_lh']);
 								// echo $hari;
-								if ($hari[weekday] == "Sunday"){
+								if ($hari == "Sunday"){
 									echo "Minggu";
 								}
-								elseif ($hari[weekday] == "Monday"){
+								elseif ($hari == "Monday"){
 									echo "Senin";
 								}
-								elseif ($hari[weekday] == "Thursday"){
+								elseif ($hari == "Thursday"){
 									echo "Selasa";
 								}
-								elseif ($hari[weekday] == "Wednesday"){
+								elseif ($hari == "Wednesday"){
 									echo "Rabu";
 								}
-								elseif ($hari[weekday] == "Tuesday"){
+								elseif ($hari == "Tuesday"){
 									echo "Kamis";
 								}
-								elseif ($hari[weekday] == "Friday"){
+								elseif ($hari == "Friday"){
 									echo "Jumat";
 								}
 								else {
@@ -89,7 +86,7 @@ while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
 						<tr>
 							<td>Tanggal</td>
 							<td class="indent-colon" style="padding: 0 2.5em;">:</td>
-							<td><?php echo date("d-m-Y"); ?></td>
+							<td><?php echo date("d-M-Y", $data['tgl_lh']) ; ?></td>
 						</tr>
 
 						<tr>
@@ -100,7 +97,14 @@ while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
 					</tbody>
 				</table>
 			</div>
-			<p class="pembuka">Telah Lahir seorang Anak Laki-Laki bernama:</p>
+			<p class="pembuka">Telah Lahir seorang Anak
+				<?php
+					if ($data['jekel'] == 'LK'){
+						echo "Laki-Laki";
+					} else {
+						echo "Perempuan";
+					}
+			 ?> bernama:</p>
 			<p style="font-size: 2em; text-align: center; font-weight: 800;"><?php echo $data['nama'] ?></p>
 
 			<?php

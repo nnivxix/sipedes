@@ -7,7 +7,7 @@
 	}
 
 	$tanggal = date("m/y");
-	$tgl = date("d/m/y");
+	$tgl = date("d/M/y");
 	// $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.id_pend) where tb_mendu.id_mendu = '$id'";
 			$sql_tampil = "SELECT
 			m.id_mendu, m.tgl_mendu, m.sebab,
@@ -58,7 +58,7 @@
 						<tr>
 							<td>Nama Lengkap</td>
 							<td class="indent-colon" style="padding: 0 4.1em;">:</td>
-							<td style="text-transform: uppercase; font-weight: 800;">Enip Suparman</td>
+							<td>Enip Suparman</td>
 						</tr>
 
 						<tr>
@@ -76,7 +76,7 @@
 						<tr>
 							<td>Nama Lengkap</td>
 							<td class="indent-colon">:</td>
-							<td><?php echo $data['nama']; ?></td>
+							<td style="text-transform: uppercase; font-weight: 800;"><?php echo $data['nama']; ?></td>
 						</tr>
 						<tr>
 							<td>Jenis Kelamin</td>
@@ -95,7 +95,7 @@
 							<td class="indent-colon">:</td>
 							<?php
 							$str_date = strtotime($data['tgl_lh']);
-							$date_tgl = date("d-m-Y", $str_date);
+							$date_tgl = date("d-M-Y", $str_date);
 							//echo gettype($data['tgl_lh']);
 							 ?>
 							<td><?php echo $data['tempat_lh']. ", ". $date_tgl; ?></td>
@@ -135,7 +135,7 @@
 					<td><?php
 					$hari = date('l', $data['tgl_mendu']);
 
-					echo $hari;
+					// echo $hari;
 					if ($hari == "Sunday"){
 						echo "Minggu";
 					}
@@ -162,7 +162,7 @@
 				<tr>
 					<td>Tanggal</td>
 					<td style="padding: 0 3em;">:</td>
-					<td><?php echo date("d-m-Y", strtotime($data['tgl_mendu'])); ?></td>
+					<td><?php echo date("d-M-Y", strtotime($data['tgl_mendu'])); ?></td>
 				</tr>
 				<tr>
 					<td>Disebabkan Karena</td>
@@ -187,7 +187,7 @@
 	</main>
 
 	<script>
-		// window.print()
+		window.print();
 	</script>
 </body>
 </html>

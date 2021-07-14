@@ -14,4 +14,4 @@ $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.i
 - [x] ~~Surat Domisili~~
 - [x] ~~Surat Lahir~~
 - [x] ~~Surat Mati~~
-- [ ] Surat Pindah
+- [x] ~~Surat Pindah~~

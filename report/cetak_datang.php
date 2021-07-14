@@ -6,7 +6,7 @@
 	}
 
 	$tanggal = date("m/y");
-	$tgl = date("d/m/y");
+	$tgl = date("d/M/y");
 	$sql_tampil = "select * from tb_datang
 									where id_datang ='$id'";
 
@@ -54,7 +54,7 @@
 						<tr>
 							<td>Nama Lengkap</td>
 							<td class="indent-colon" style="padding: 0 3.5em;">:</td>
-							<td style="text-transform: uppercase; font-weight: 800;">Enip Suparman</td>
+							<td>Enip Suparman</td>
 						</tr>
 
 						<tr>
@@ -72,7 +72,7 @@
 						<tr>
 							<td>Nama Lengkap</td>
 							<td class="indent-colon">:</td>
-							<td><?php echo $data['nama_datang'] ;?></td>
+							<td style="text-transform: uppercase; font-weight: 800;"><?php echo $data['nama_datang'] ;?></td>
 						</tr>
 						<tr>
 							<td>NIK</td>
@@ -94,7 +94,7 @@
 						<tr>
 							<td>Tanggal Datang</td>
 							<td class="indent-colon">:</td>
-							<td><?php echo date("d-m-Y", strtotime($data['tgl_datang'])); ?></td>
+							<td><?php echo date("d-M-Y", strtotime($data['tgl_datang'])); ?></td>
 						</tr>
 					</tbody>
 				</table>
