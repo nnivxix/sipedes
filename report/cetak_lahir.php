@@ -2,115 +2,170 @@
 	include "../inc/koneksi.php";
 	
 	if (isset ($_POST['Cetak'])){
-	$id = $_POST['lahir'];
+		$id = $_POST['lahir'];
 	}
 
 	$tanggal = date("m/y");
 	$tgl = date("d/m/y");
 	
+
+$sql_tampil = "select * from tb_lahir where id_lahir='$id'";
+$query_tampil = mysqli_query($koneksi, $sql_tampil);
+$no=1;
+while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
+
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+	<title>Document</title>
 </head>
 <body>
-    <main>
-        <header>
-            <!-- logo -->
-            <div class="logo1">
-			<img class="ciamis" src="../dist/img/izin.png">
-            </div>
-            <div class="kop">
-                <h1>PEMERINTAH KABUPATEN CIAMIS</h1>
-                <h2>KECAMATAN CISAGA</h2>
-                <H2>DESA CISAGA</H2>
-                <p>Jln. Raya Ciamis-Banjar No.231 CISAGA 46386 </p>
+	<main>
+		<header>
+			<!-- logo -->
+			<div class="logo1">
+					<img class="ciamis" src="../dist/img/izin.png">
+			</div>
+			<div class="kop">
+				<h1>PEMERINTAH KABUPATEN CIAMIS</h1>
+				<h2>KECAMATAN CISAGA</h2>
+				<H2>DESA CISAGA</H2>
+				<p>Jln. Raya Ciamis-Banjar No.231 CISAGA 46386 </p>
+			</div>
+		</header>
+		<div class="line"></div>
+
+		<div class="nomor__surat">
+			<h1 style="text-decoration: underline;">SURAT KETERANGAN KELAHIRAN</h1>
+			<h2>Nomor : <?php echo $data['id_lahir']."/Ket.Kelahiran/".$tanggal; ?></h2>
+		</div>
+
+		<article>
+			<p class="pembuka">Untuk yang bersangkutan dibawah ini</p>
+			<div class="table">
+				<table class="indent-table">
+					<tbody>
+						<tr>
+							<td>Hari</td>
+							<td class="indent-colon" style="padding: 0 2.5em;">:</td>
+							<td>
+								<?php
+								$hari = getdate(date("U"));
+								// echo $hari;
+								if ($hari[weekday] == "Sunday"){
+									echo "Minggu";
+								}
+								elseif ($hari[weekday] == "Monday"){
+									echo "Senin";
+								}
+								elseif ($hari[weekday] == "Thursday"){
+									echo "Selasa";
+								}
+								elseif ($hari[weekday] == "Wednesday"){
+									echo "Rabu";
+								}
+								elseif ($hari[weekday] == "Tuesday"){
+									echo "Kamis";
+								}
+								elseif ($hari[weekday] == "Friday"){
+									echo "Jumat";
+								}
+								else {
+									echo "Sabtu";
+								}
+								 ?>
+							</td>
+						</tr>
+
+						<tr>
+							<td>Tanggal</td>
+							<td class="indent-colon" style="padding: 0 2.5em;">:</td>
+							<td><?php echo date("d-m-Y"); ?></td>
+						</tr>
+
+						<tr>
+							<td>Tempat Kelahiran</td>
+							<td class="indent-colon" style="padding: 0 2.5em;">:</td>
+							<td>Ciamis</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="pembuka">Telah Lahir seorang Anak Laki-Laki bernama:</p>
+			<p style="font-size: 2em; text-align: center; font-weight: 800;"><?php echo $data['nama'] ?></p>
 
 			<?php
-				$sql_tampil = "select * from tb_lahir where id_lahir='$id'";
-				$query_tampil = mysqli_query($koneksi, $sql_tampil);
-				$no=1;
-				while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
-			?>
-            </div>
-        </header>
-        <div class="line"></div>
 
-        <div class="nomor__surat">
-            <h1>SURAT KETERANGAN KELAHIRAN</h1>
-            <h2>Nomor : 
-			<?php echo $data['id_lahir']; ?>/Ket.Kelahiran/
-			<?php echo $tanggal; ?>
-			</h2>
-        </div>
+				$sql_ortu = "SELECT * FROM tb_kk WHERE id_kk = '$data[id_kk]'";
+				$sql_ortu_tampil = mysqli_query($koneksi,$sql_ortu);
+				while ($data_ortu = mysqli_fetch_array($sql_ortu_tampil, MYSQLI_BOTH)){
 
-        <article>
-            <p class="pembuka">&#9; Yang bertandatangan dibawah ini Kepala Desa Cisaga, Kecamatan Cisaga, Kabupaten Ciamis, dengan ini menerangkan
-                bahawa :</p>
+		 ?>
+			<p class="pembuka">Dari Orang Tua:</p>
 
-            <div class="table">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Nama</td>
-                            <td>:</td>
-                            <td>
-								<?php echo $data['nama']; ?>
-							</td>
-                        </tr>
+			<div class="table">
+				<table class="indent-table">
+					<tbody>
+						<tr>
+							<td>Nama Lengkap</td>
+							<td class="indent-colon">:</td>
+							<td><?php echo $data_ortu['kepala']; ?></td>
+						</tr>
+						<tr>
+							<td>NIK</td>
+							<td class="indent-colon">:</td>
+							<td><?php echo $data_ortu['no_kk']; ?></td>
+						</tr>
+						<tr>
+							<td>Alamat</td>
+							<td class="indent-colon">:</td>
+							<td><?php echo  "Desa ".$data_ortu['desa']. "RT " .$data_ortu['rt']." RW ".$data_ortu['rw']." Kecamatan ".$data_ortu['kec']." Kabupaten ".$data_ortu['kab']; ?></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
-                        <tr>
-                            <td>Jenis Kelamin</td>
-                            <td>:</td>
-                            <td>
-								<?php if ($data['jekel'] == "LK"){ ?>
-										<?php echo 'Laki-Laki'; ?>
-										<?php	} else { ?>
-											<?php	echo 'Perempuan'; ?>
-											<?php	} ?>
-							</td>
-                    </tr>
-
-                    <tr>
-                        <td>Tgl lahir</td>
-                        <td>:</td>
-                        <td>
-							<?php $s = $data['tgl_lh']; ?>
-							<?php $date = strtotime($s); ?>
-							
-							<?php echo $data['tempat_lh'] . " - " . date('d/F/Y ', $date);; ?>	
-						</td>
-                </tr>
-                    </tbody>
-					<?php } ?>
-                    </table>
-            </div>
-
-			<p class="penutup">&#9; Adalah benar-benar warga Desa Cisaga, Kecamatan Cisaga, Kabupuaten Ciamis.</p>
-			<p class="penutup">&#9; Demikian Surat ini dibuat, agar dapat digunakan sebagai mana mestinya.</p>
-        </article>
-
-				<div class="tanda__tangan">
-					<p>	Cisaga, 
-						<?php echo $tgl; ?>	
-					</p>
-					<p class="space__for__sign">Kepala Desa Cisaga</p>
-					<p>Enip</p>
-				</div>
-    </main>
+			<p class="pembuka">Surat Keterangan ini dibuat berdasarkan keterangan pelapor :</p>
+			<div class="table">
+				<table class="indent-table">
+					<tbody>
+						<tr>
+							<td>Nama Lengkap</td>
+							<td class="indent-colon">:</td>
+							<td><?php echo $data_ortu['kepala']; ?></td>
+						</tr>
+						<tr>
+							<td>NIK</td>
+							<td class="indent-colon">:</td>
+							<td><?php echo $data_ortu['no_kk']; ?></td>
+						</tr>
+						<tr>
+							<td>Alamat</td>
+							<td class="indent-colon">:</td>
+							<td><?php echo  "Desa ".$data_ortu['desa']. "RT " .$data_ortu['rt']." RW ".$data_ortu['rw']." Kecamatan ".$data_ortu['kec']." Kabupaten ".$data_ortu['kab']; ?></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+<?php } ?>
+			<p class="penutup">Hubungan pelapor dengan bayi : <span style="text-decoration:underline;">Orang Tua Kandung</span> </p>
+		</article>
+<?php } ?>
+		<div class="tanda__tangan">
+			<p>	Cisaga, <?php echo $tgl; ?></p>
+			<p class="space__for__sign">Kepala Desa Cisaga</p>
+			<p>Enip</p>
+		</div>
+	</main>
 </body>
 </html>
 
-	<script>
-		//window.print();
-	</script>
-
-</body>
-
-</html>

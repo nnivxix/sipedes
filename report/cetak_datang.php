@@ -23,7 +23,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
-	<title>Surat Keterangan Pendatang <?php echo $data['nama']; ?></title>
+	<title>Surat Keterangan Pendatang <?php echo $data['nama_datang']; ?></title>
 </head>
 <body>
 	<main>
@@ -53,13 +53,13 @@
 					<tbody>
 						<tr>
 							<td>Nama Lengkap</td>
-							<td class="indent-colon" style="padding: 0 4.1em;">:</td>
+							<td class="indent-colon" style="padding: 0 3.5em;">:</td>
 							<td style="text-transform: uppercase; font-weight: 800;">Enip Suparman</td>
 						</tr>
 
 						<tr>
 							<td>Jabatan</td>
-							<td class="indent-colon" style="padding: 0 4.1em;">:</td>
+							<td class="indent-colon" style="padding: 0 3.5em;">:</td>
 							<td>Kepala Desa</td>
 						</tr>
 					</tbody>
@@ -94,7 +94,7 @@
 						<tr>
 							<td>Tanggal Datang</td>
 							<td class="indent-colon">:</td>
-							<td><?php echo date("d-m-Y",$data['tgl_datang']); ?></td>
+							<td><?php echo date("d-m-Y", strtotime($data['tgl_datang'])); ?></td>
 						</tr>
 					</tbody>
 				</table>

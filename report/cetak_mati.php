@@ -135,7 +135,7 @@
 					<td><?php
 					$hari = date('l', $data['tgl_mendu']);
 
-					// echo $hari;
+					echo $hari;
 					if ($hari == "Sunday"){
 						echo "Minggu";
 					}
@@ -180,14 +180,14 @@
 		</article>
 <?php } ?>
 		<div class="tanda__tangan">
-			<p>	Cisaga, 12 Februari 2021</p>
+			<p>	Cisaga, <?php echo $tgl; ?></p>
 			<p class="space__for__sign">Kepala Desa Cisaga</p>
 			<p>Enip</p>
 		</div>
 	</main>
 
 	<script>
-		window.print()
+		// window.print()
 	</script>
 </body>
 </html>
