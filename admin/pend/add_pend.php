@@ -59,6 +59,27 @@
 			</div>
 
 			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Kecamatan</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="kec" name="kec" placeholder="Nama Kecamatan" required>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Kabupaten</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="kab" name="kab" placeholder="Nama Kabupaten" required>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Provinsi</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="prov" name="prov" placeholder="Nama Provinsi" required>
+				</div>
+			</div>
+
+			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Agama</label>
 				<div class="col-sm-6">
 					<input type="text" class="form-control" id="agama" name="agama" placeholder="Agama" required>

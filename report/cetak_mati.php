@@ -133,7 +133,7 @@
 					<td>Hari</td>
 					<td style="padding: 0 3em;">:</td>
 					<td><?php
-					$hari = date('l', $data['tgl_mendu']);
+					$hari = date('l', strtotime($data['tgl_mendu']));
 
 					// echo $hari;
 					if ($hari == "Sunday"){

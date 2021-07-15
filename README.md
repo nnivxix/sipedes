@@ -15,3 +15,10 @@ $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.i
 - [x] ~~Surat Lahir~~
 - [x] ~~Surat Mati~~
 - [x] ~~Surat Pindah~~
+
+
+## Todo
+- [x] ~~Tambah spek database pada table penduduk { kec. kab. provinsi}.~~
+- [ ] Tambah spek database pada table pindah tujuan {desa, rt, rw, kec. , kab. , provinsi}
+- [ ] Perbaharui format surat pindah.
+- [ ] hari dan tanggal pada surat.

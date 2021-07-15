@@ -4,6 +4,8 @@
         $sql_cek = "SELECT * FROM tb_pdd WHERE id_pend='".$_GET['kode']."'";
         $query_cek = mysqli_query($koneksi, $sql_cek);
         $data_cek = mysqli_fetch_array($query_cek,MYSQLI_BOTH);
+
+        var_dump($data_cek);
     }
 ?>
 
@@ -89,6 +91,27 @@
 			</div>
 
 			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Kecamatan</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="kec" name="kec" placeholder="Nama Kecamatan" value="<?php echo $data_cek['kec']; ?>">
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Kabupaten</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="kab" name="kab" placeholder="Nama Kabupaten" value="<?php echo $data_cek['kab']; ?>">
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Provinsi</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="prov" name="prov" placeholder="Nama Provinsi" value="<?php echo $data_cek['prov']; ?>">
+				</div>
+			</div>
+
+			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Agama</label>
 				<div class="col-sm-6">
 					<input type="text" class="form-control" id="agama" name="agama" value="<?php echo $data_cek['agama']; ?>"
@@ -168,8 +191,12 @@
 		desa='".$_POST['desa']."',
 		rt='".$_POST['rt']."',
 		rw='".$_POST['rw']."',
+		kec='".$_POST['kec']."',
+		kab='".$_POST['kab']."',
+		prov='".$_POST['prov']."',
 		agama='".$_POST['agama']."',
 		kawin='".$_POST['kawin']."',
+		status='".$_POST['status']."',
 		pekerjaan='".$_POST['pekerjaan']."'
 		WHERE id_pend='".$_POST['id_pend']."'";
     $query_ubah = mysqli_query($koneksi, $sql_ubah);

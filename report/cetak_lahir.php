@@ -56,8 +56,8 @@ while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
 							<td class="indent-colon" style="padding: 0 2.5em;">:</td>
 							<td>
 								<?php
-								$hari = date('l', $data['tgl_lh']);
-								// echo $hari;
+								$hari = date('l', strtotime($data['tgl_lh']));
+								// echo date('l', strtotime($data['tgl_lh']));
 								if ($hari == "Sunday"){
 									echo "Minggu";
 								}
@@ -82,11 +82,10 @@ while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
 								 ?>
 							</td>
 						</tr>
-
 						<tr>
 							<td>Tanggal</td>
 							<td class="indent-colon" style="padding: 0 2.5em;">:</td>
-							<td><?php echo date("d-M-Y", $data['tgl_lh']) ; ?></td>
+							<td><?php echo date("d-M-Y", strtotime($data['tgl_lh'])); ?></td>
 						</tr>
 
 						<tr>
