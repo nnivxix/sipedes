@@ -10,7 +10,7 @@
 	$tgl = date("d/M/y");
 	// $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.id_pend) where tb_mendu.id_mendu = '$id'";
 			$sql_tampil = "SELECT
-			m.id_mendu, m.tgl_mendu, m.sebab,
+			m.id_mendu, m.tgl_mendu, m.tempat_mendu, m.sebab,
 			p.nik, p.nama, p.tempat_lh, p.tgl_lh,  p.jekel, p.desa, p.rt, p.rw, p.agama, p.pekerjaan
 			from tb_mendu m inner join tb_pdd p
 			on m.id_pdd = p.id_pend
@@ -172,7 +172,7 @@
 				<tr>
 					<td>Di</td>
 					<td style="padding: 0 3em;">:</td>
-					<td><?php echo $data['tempat_lh']; ?></td>
+					<td><?php echo $data['tempat_mendu']; ?></td>
 				</tr>
 			</tbody>
 		</table>

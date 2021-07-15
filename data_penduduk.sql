@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 16, 2021 at 01:57 AM
+-- Generation Time: Jul 16, 2021 at 02:20 AM
 -- Server version: 8.0.25-0ubuntu0.20.10.1
 -- PHP Version: 7.4.9
 
@@ -132,16 +132,17 @@ CREATE TABLE `tb_mendu` (
   `id_mendu` int NOT NULL,
   `id_pdd` int NOT NULL,
   `tgl_mendu` date NOT NULL,
-  `sebab` varchar(20) NOT NULL
+  `sebab` varchar(20) NOT NULL,
+  `tempat_mendu` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_mendu`
 --
 
-INSERT INTO `tb_mendu` (`id_mendu`, `id_pdd`, `tgl_mendu`, `sebab`) VALUES
-(1, 6, '2020-09-21', 'Usia Tua'),
-(2, 2, '2021-07-01', 'Sakit');
+INSERT INTO `tb_mendu` (`id_mendu`, `id_pdd`, `tgl_mendu`, `sebab`, `tempat_mendu`) VALUES
+(1, 6, '2020-09-21', 'Usia Tua', 'Jakarta'),
+(2, 2, '2021-07-01', 'Sakit', 'Surabaya');
 
 -- --------------------------------------------------------
 

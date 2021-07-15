@@ -44,6 +44,13 @@
 				</div>
 			</div>
 
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Tempat MenDu</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="tempat_mendu" name="tempat_mendu" placeholder="Tempat Meninggal Dunia" required>
+				</div>
+			</div>
+
 		</div>
 		<div class="card-footer">
 			<input type="submit" name="Simpan" value="Simpan" class="btn btn-info">
@@ -59,6 +66,7 @@
         $sql_simpan = "INSERT INTO tb_mendu (id_pdd, tgl_mendu, sebab) VALUES (
 			'".$_POST['id_pdd']."',
             '".$_POST['tgl_mendu']."',
+            '".$_POST['tempat_mendu']."',
             '".$_POST['sebab']."')";
 		$query_simpan = mysqli_query($koneksi, $sql_simpan);
 		

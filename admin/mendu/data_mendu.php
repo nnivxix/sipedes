@@ -18,6 +18,7 @@
 						<th>NIK</th>
 						<th>Nama</th>
 						<th>Tanggal</th>
+						<th>Tempat</th>
 						<th>Sebab</th>
 						<th>Aksi</th>
 					</tr>
@@ -26,7 +27,7 @@
 
 					<?php
               $no = 1;
-			  $sql = $koneksi->query("SELECT p.id_pend, p.nik, p.nama, m.tgl_mendu, m.sebab, m.id_mendu from 
+			  $sql = $koneksi->query("SELECT p.id_pend, p.nik, p.nama, m.tgl_mendu, m.tempat_mendu, m.sebab, m.id_mendu from
 			  tb_mendu m inner join tb_pdd p on p.id_pend=m.id_pdd");
               while ($data= $sql->fetch_assoc()) {
             ?>
@@ -43,6 +44,9 @@
 						</td>
 						<td>
 							<?php echo $data['tgl_mendu']; ?>
+						</td>
+						<td>
+							<?php echo $data['tempat_mendu']; ?>
 						</td>
 						<td>
 							<?php echo $data['sebab']; ?>
