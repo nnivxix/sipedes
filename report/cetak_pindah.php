@@ -4,12 +4,7 @@
 	if (isset ($_POST['Cetak'])){
 	$id = $_POST['id_pend'];
 
-	$desa = $_POST['desa'];
-	$rt = $_POST['rt'];
-	$rw = $_POST['rw'];
-	$kecamatan = $_POST['kecamatan'];
-	$kabupaten = $_POST['kabupaten'];
-	$provinsi = $_POST['provinsi'];
+
 	// var_dump($rt);
 	}
 
@@ -81,26 +76,50 @@
 							<td class="indent-colon" style="padding: 0 4.1em;">:</td>
 							<td><?php echo "Desa ". $data['desa']. " RT ". $data['rt']. " RW ". $data['rw']; ?></td>
 						</tr>
-							<br>
-						<tr>
-							<td>Alamat Tujuan </td>
-							<td class="indent-colon" style="padding: 0 4.1em;">:</td>
-							<td><?php echo "Desa ". $desa. " RT" . $rt . " RW". $rw; ?></td>
-						</tr>
 						<tr>
 							<td></td>
 							<td style="padding: 0 4.1em";></td>
-							<td> <?php echo "Kecamatan ". $kecamatan; ?></td>
+							<td> <?php echo "Kecamatan ". $data['kec']; ?></td>
 						</tr>
 						<tr>
 							<td></td>
 							<td style="padding: 0 4.1em;"></td>
-							<td> <?php echo  "Kabupaten ". $kabupaten; ?></td>
+							<td> <?php echo  "Kabupaten ". $data['kab']; ?></td>
 						</tr>
 						<tr>
 							<td ></td>
 							<td style="padding: 0 4.1em;"></td>
-							<td> <?php echo  "Provinsi " .$provinsi; ?></td>
+							<td> <?php echo  "Provinsi " .$data['prov']; ?></td>
+						</tr>
+							<br>
+						<?php } ?>
+						<?php
+							$sql_pd = "select * from tb_pindah
+							where id_pdd ='$id'";
+
+							$query_pd = mysqli_query($koneksi, $sql_pd);
+							$no=1;
+							while ($data_pd = mysqli_fetch_array($query_pd,MYSQLI_BOTH)) {
+							// var_dump($data_pd); ?>
+						<tr>
+							<td>Alamat Tujuan </td>
+							<td class="indent-colon" style="padding: 0 4.1em;">:</td>
+							<td><?php echo "Desa ". $data_pd['desa']. " RT" . $data_pd['rt'] . " RW". $data_pd['rw']; ?></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td style="padding: 0 4.1em";></td>
+							<td> <?php echo "Kecamatan ". $data_pd['kec']; ?></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td style="padding: 0 4.1em;"></td>
+							<td> <?php echo  "Kabupaten ". $data_pd['kab']; ?></td>
+						</tr>
+						<tr>
+							<td ></td>
+							<td style="padding: 0 4.1em;"></td>
+							<td> <?php echo  "Provinsi " .$data_pd['prov']; ?></td>
 						</tr>
 
 					</tbody>

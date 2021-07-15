@@ -18,6 +18,7 @@
 						<th>NIK</th>
 						<th>Nama</th>
 						<th>Tanggal</th>
+						<th>Tujuan</th>
 						<th>Alasan</th>
 						<th>Aksi</th>
 					</tr>
@@ -26,7 +27,7 @@
 
 					<?php
               $no = 1;
-			  $sql = $koneksi->query("SELECT p.id_pend, p.nik, p.nama, d.tgl_pindah, d.alasan, d.id_pindah from 
+			  $sql = $koneksi->query("SELECT p.id_pend, p.nik, p.nama, d.tgl_pindah, d.alasan, d.desa, d.rt, d.rw, d.kec, d.kab, d.prov, d.id_pindah from
 			  tb_pindah d inner join tb_pdd p on p.id_pend=d.id_pdd");
               while ($data= $sql->fetch_assoc()) {
             ?>
@@ -43,6 +44,9 @@
 						</td>
 						<td>
 							<?php echo $data['tgl_pindah']; ?>
+						</td>
+						<td>
+							<?php echo "Desa ". $data['desa']." RT". $data['rt']. " /RW ".$data['rw']." Kecamatan ". $data['kec']." Kabupaten ".$data['kab']. " Provinsi ". $data['prov']; ?>
 						</td>
 						<td>
 							<?php echo $data['alasan']; ?>

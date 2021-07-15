@@ -27,13 +27,13 @@
 				?>
 					</select>
 <br>
-					<p style="font-weight: 800;">Alamat Tujuan: </p>
+					<!-- <p style="font-weight: 800;">Alamat Tujuan: </p>
 					<input type="text" style="margin: 10px 0;" placeholder="Desa" name="desa" class="form-control" required>
 					<input type="text" style="margin: 10px 0;" placeholder="RT" name="rt" class="form-control" required>
 					<input type="text" style="margin: 10px 0;" placeholder="RW" name="rw" class="form-control" required>
 					<input type="text" style="margin: 10px 0;" placeholder="Kecamatan" name="kecamatan" class="form-control" required>
 					<input type="text" style="margin: 10px 0;" placeholder="Kabupaten" name="kabupaten" class="form-control" required>
-					<input type="text" style="margin: 10px 0;" placeholder="Provinsi" name="provinsi" class="form-control" required>
+					<input type="text" style="margin: 10px 0;" placeholder="Provinsi" name="provinsi" class="form-control" required> -->
 				</div>
 			</div>
 
