@@ -73,9 +73,10 @@
 
     if (isset ($_POST['Simpan'])){
     //mulai proses simpan data
-        $sql_simpan = "INSERT INTO tb_lahir (nama, tgl_lh, jekel, id_kk) VALUES (
+        $sql_simpan = "INSERT INTO tb_lahir (nama, tempat_lh, tgl_lh, jekel, id_kk) VALUES (
             '".$_POST['nama']."',
-			'".$_POST['tgl_lh']."',
+            '".$_POST['tempat_lh']."',
+            '".$_POST['tgl_lh']."',
             '".$_POST['jekel']."',
             '".$_POST['id_kk']."')";
         $query_simpan = mysqli_query($koneksi, $sql_simpan);

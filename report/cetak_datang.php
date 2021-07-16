@@ -3,6 +3,8 @@
 	
 	if (isset ($_POST['Cetak'])){
 	$id = $_POST['id_datang'];
+
+	var_dump($id);
 	}
 
 	$tanggal = date("m/y");
@@ -112,6 +114,8 @@
 	</main>
 <?php } ?>
 
-<script>window.print()</script>
+<script>
+	// window.print()
+</script>
 </body>
 </html>

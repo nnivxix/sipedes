@@ -1,0 +1,66 @@
+body{
+	padding: 0;
+	margin: 0;
+	box-sizing: content-box;
+	font-family: sans-serif;
+}
+.form p{
+	margin-block-start:4px;
+	margin-block-end: 4px;
+	font-size: 13.4px;
+}
+.form{
+	display: grid;
+	grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr 1fr;
+}
+.form h1{
+	font-size: 1em;
+	text-transform: uppercase;
+}
+
+.info__form__daerah__asal .info__data__kepindahan{
+	grid-column: 1/7;
+
+}
+
+.nokk, .kepala__keluarga, .alamat, .alasan{
+	grid-column: 1/2;
+}
+.isi__nokk, .isi__kepala__keluarga, .isi__alasan{
+	grid-column: 2/7;
+}
+.isi__alamat{
+	grid-column: 2/5;
+}
+.desa, .kec{
+	grid-column: 1/2;
+	text-indent: 1em;
+}
+.isi__desa, .isi__kec{
+	grid-column: 2/4;
+}
+
+.kab, .prop {
+	grid-column: 4/5;
+	text-indent: 1em;
+}
+
+.isi__kab, .isi__prop{
+	grid-column: 5/7;
+}
+
+.kodepos{
+	grid-column: 2/3;
+}
+
+.isi__kodepos{
+	grid-column: 3/4;
+}
+
+.telp{
+	grid-column: 4/5;
+}
+
+.isi__telp{
+	grid-column: 5/7;
+}

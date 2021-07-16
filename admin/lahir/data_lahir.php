@@ -27,7 +27,7 @@
 
 					<?php
               $no = 1;
-			  $sql = $koneksi->query("SELECT l.id_lahir, l.nama,  l.tgl_lh, l.jekel, k.no_kk, k.kepala from 
+			  $sql = $koneksi->query("SELECT l.id_lahir, l.nama,  l.tgl_lh, l.jekel, l.tempat_lh, k.no_kk, k.kepala from
 			  tb_lahir l inner join tb_kk k on k.id_kk=l.id_kk");
               while ($data= $sql->fetch_assoc()) {
             ?>
@@ -40,13 +40,16 @@
 							<?php echo $data['nama']; ?>
 						</td>
 						<td>
+							<?php echo $data['tempat_lh']; ?>
+						</td>
+						<td>
 							<?php echo $data['tgl_lh']; ?>
 						</td>
 						<td>
 							<?php echo $data['jekel']; ?>
 						</td>
 						<td>
-							<?php echo $data['no_kk']; ?>-
+							<?php echo $data['no_kk']; ?> -
 							<?php echo $data['kepala']; ?>
 						</td>
 						<td>

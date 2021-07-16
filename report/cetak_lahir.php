@@ -6,7 +6,7 @@
 	}
 
 	$tanggal = date("m/y");
-	$tgl = date("d/M/y");
+	$tgl = date("d-m-Y");
 	
 
 $sql_tampil = "select * from tb_lahir where id_lahir='$id'";
@@ -169,6 +169,10 @@ while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
 			<p>Enip</p>
 		</div>
 	</main>
+
+	<script>
+	// window.print()
+</script>
 </body>
 </html>
 

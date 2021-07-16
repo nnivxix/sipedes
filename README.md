@@ -19,6 +19,6 @@ $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.i
 
 ## Todo
 - [x] ~~Tambah spek database pada table penduduk { kec. kab. provinsi}.~~
-- [x] Tambah spek database pada table pindah tujuan {desa, rt, rw, kec. , kab. , provinsi}
+- [x] ~~Tambah spek database pada table pindah tujuan {desa, rt, rw, kec. , kab. , provinsi}.~~
 - [ ] Perbaharui format surat pindah.
-- [x] hari dan tanggal pada surat.
+- [x] ~~hari dan tanggal pada surat.~~

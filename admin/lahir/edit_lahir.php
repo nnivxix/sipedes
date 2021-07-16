@@ -34,7 +34,7 @@
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Tempat</label>
 				<div class="col-sm-6">
-					<input type="text" class="form-control" id="tempat_lh" name="tempat_lh" value="<?php echo $data_cek['nama']; ?>"
+					<input type="text" class="form-control" id="tempat_lh" name="tempat_lh" value="<?php echo $data_cek['tempat_lh']; ?>"
 					 required>
 				</div>
 			</div>
@@ -103,6 +103,7 @@
     if (isset ($_POST['Ubah'])){
     $sql_ubah = "UPDATE tb_lahir SET 
 		nama='".$_POST['nama']."',
+		tempat_lh='".$_POST['tempat_lh']."',
 		tgl_lh='".$_POST['tgl_lh']."',
 		jekel='".$_POST['jekel']."',
 		id_kk='".$_POST['id_kk']."'

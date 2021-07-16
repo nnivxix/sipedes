@@ -5,6 +5,7 @@
 	$id = $_POST['id_pend'];
 
 
+
 	// var_dump($rt);
 	}
 
@@ -35,23 +36,9 @@
 </head>
 <body>
 	<main>
-		<header>
-			<!-- logo -->
-			<div class="logo1">
-					<img class="ciamis" src="../dist/img/izin.png">
-			</div>
-			<div class="kop">
-				<h1>PEMERINTAH KABUPATEN CIAMIS</h1>
-				<h2>KECAMATAN CISAGA</h2>
-				<H2>DESA CISAGA</H2>
-				<p>Jln. Raya Ciamis-Banjar No.231 CISAGA 46386 </p>
-			</div>
-		</header>
-		<div class="line"></div>
 
 		<div class="nomor__surat">
-			<h1 style="text-decoration: underline;">SURAT KETERANGAN PINDAH</h1>
-			<h2>Nomor : <?php echo $data['id_pend']. "/Ket.Pindah/". $tanggal; ?></h2>
+			<h1 style="text-transform:uppercase;">Surat Keterangan Pindah Datang WNI</h1>
 		</div>
 
 		<article>
@@ -138,7 +125,7 @@
 <?php } ?>
 
 <script>
-	window.print();
+	// window.print();
 </script>
 </body>
 </html>
