@@ -22,3 +22,15 @@ $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.i
 - [x] ~~Tambah spek database pada table pindah tujuan {desa, rt, rw, kec. , kab. , provinsi}.~~
 - [ ] Perbaharui format surat pindah.
 - [x] ~~hari dan tanggal pada surat.~~
+
+
+## edit
+- [ ] tampilakan data dari mysql (kepindah)
+- [ ] cetak surat
+- [ ] + anggota keluarga yang pindah
+
+
+## Link Penyelamat
+- [Insert Data Into MySQL Using PHP](https://www.studentstutorial.com/php/php-mysql-data-insert)
+- [Insert Date in MySQL](https://www.ntchosting.com/encyclopedia/databases/mysql/insert-date/)
+- [Cara membuat Tabel di phpMyAdmin dan Relasinya](https://kelasprogrammer.com/cara-membuat-tabel-di-phpmyadmin/#Memulai_membuat_tabel_di_phpMyAdmin)

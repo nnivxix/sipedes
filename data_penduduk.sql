@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 16, 2021 at 02:20 AM
+-- Generation Time: Jul 21, 2021 at 01:03 AM
 -- Server version: 8.0.25-0ubuntu0.20.10.1
 -- PHP Version: 7.4.9
 
@@ -74,6 +74,41 @@ INSERT INTO `tb_datang` (`id_datang`, `nik`, `nama_datang`, `jekel`, `tgl_datang
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_kepindah`
+--
+
+CREATE TABLE `tb_kepindah` (
+  `id_kk` int NOT NULL,
+  `alasan_pindah` varchar(1) NOT NULL,
+  `alamat_tujuan` varchar(16) NOT NULL,
+  `pind_desa` varchar(16) NOT NULL,
+  `pind_tel` varchar(16) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `pind_kab` varchar(16) NOT NULL,
+  `pind_prop` varchar(16) NOT NULL,
+  `pind_rt` varchar(2) NOT NULL,
+  `pind_rw` varchar(2) NOT NULL,
+  `klas_pind` varchar(1) NOT NULL,
+  `jen_pind` varchar(1) NOT NULL,
+  `stt_kk_tdk_pind` varchar(1) NOT NULL,
+  `stt_kk` varchar(1) NOT NULL,
+  `pind_renc` date NOT NULL,
+  `kode_pos` int DEFAULT NULL,
+  `pind_kec` varchar(12) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_kepindah`
+--
+
+INSERT INTO `tb_kepindah` (`id_kk`, `alasan_pindah`, `alamat_tujuan`, `pind_desa`, `pind_tel`, `pind_kab`, `pind_prop`, `pind_rt`, `pind_rw`, `klas_pind`, `jen_pind`, `stt_kk_tdk_pind`, `stt_kk`, `pind_renc`, `kode_pos`, `pind_kec`) VALUES
+(1, '2', 'dusun abs', 'mekar', NULL, 'mukti', 'res', '12', '12', '1', '1', '2', '2', '2019-12-23', 433444, NULL),
+(2, '1', 'Kuri', 'Kera', NULL, 'ert', 'uit', '56', '12', '1', '2', '2', '3', '2021-07-09', NULL, NULL),
+(3, '1', 'Dusun Maju', 'qwqw', NULL, 'ciamis', 'qwwqwq', '1', '2', '1', '1', '1', '1', '2021-07-09', NULL, NULL),
+(5, '1', 'Dusun Maju', 'qwqw', NULL, 'ciamis', 'qwwqwq', '1', '2', '1', '2', '2', '1', '2021-07-02', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_kk`
 --
 
@@ -86,18 +121,20 @@ CREATE TABLE `tb_kk` (
   `rw` varchar(5) NOT NULL,
   `kec` varchar(20) NOT NULL,
   `kab` varchar(20) NOT NULL,
-  `prov` varchar(20) NOT NULL
+  `prov` varchar(20) NOT NULL,
+  `alamat_kk` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `kodepos__kk` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_kk`
 --
 
-INSERT INTO `tb_kk` (`id_kk`, `no_kk`, `kepala`, `desa`, `rt`, `rw`, `kec`, `kab`, `prov`) VALUES
-(1, '1010202030304040', 'Juprianto', 'Majujaya', '01', '02', 'Semarang', 'Semarang', 'Jawa Tengahh'),
-(2, '1010202030304012', 'Hardi', 'Majujaya', '02', '02', 'Semarang', 'Semarang', 'Jawa Tengahh'),
-(3, '1010202030301111', 'Supardi', 'Majujaya', '02', '02', 'Semarang', 'Semarang', 'Jawa Tengahh'),
-(4, '12300000000000321', 'Ahmad', 'Majujaya', '02', '02', 'Semarang', 'Semarang', 'Jawa Tengahh');
+INSERT INTO `tb_kk` (`id_kk`, `no_kk`, `kepala`, `desa`, `rt`, `rw`, `kec`, `kab`, `prov`, `alamat_kk`, `kodepos__kk`) VALUES
+(1, '1010202030304040', 'Juprianto', 'Majujaya', '01', '02', 'Semarang', 'Semarang', 'Jawa Tengahh', '', 0),
+(2, '1010202030304012', 'Hardi', 'Majujaya', '02', '02', 'Semarang', 'Semarang', 'Jawa Tengahh', '', 0),
+(3, '1010202030301111', 'Supardi', 'Majujaya', '02', '02', 'Semarang', 'Semarang', 'Jawa Tengahh', '', 0),
+(4, '12300000000000321', 'Ahmad', 'Majujaya', '02', '02', 'Semarang', 'Semarang', 'Jawa Tengahh', '', 0);
 
 -- --------------------------------------------------------
 
@@ -110,17 +147,19 @@ CREATE TABLE `tb_lahir` (
   `nama` varchar(30) NOT NULL,
   `tgl_lh` date NOT NULL,
   `jekel` enum('LK','PR') NOT NULL,
-  `id_kk` int NOT NULL
+  `id_kk` int NOT NULL,
+  `tempat_lh` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_lahir`
 --
 
-INSERT INTO `tb_lahir` (`id_lahir`, `nama`, `tgl_lh`, `jekel`, `id_kk`) VALUES
-(1, 'Ahmad Yusuf', '2020-09-21', 'LK', 4),
-(2, 'Bayu', '2021-07-01', 'LK', 3),
-(3, 'Rina', '2021-07-02', 'PR', 2);
+INSERT INTO `tb_lahir` (`id_lahir`, `nama`, `tgl_lh`, `jekel`, `id_kk`, `tempat_lh`) VALUES
+(1, 'Ahmad Yusuf', '2020-09-21', 'LK', 4, 'Ciamis'),
+(2, 'Bayu', '2021-07-01', 'LK', 3, 'Jakarta'),
+(3, 'Rina', '2021-07-02', 'PR', 2, 'Ciamis'),
+(4, 'SUmarno', '2021-07-02', 'LK', 2, 'Ciamis');
 
 -- --------------------------------------------------------
 
@@ -174,11 +213,11 @@ CREATE TABLE `tb_pdd` (
 --
 
 INSERT INTO `tb_pdd` (`id_pend`, `nik`, `nama`, `tempat_lh`, `tgl_lh`, `jekel`, `desa`, `rt`, `rw`, `agama`, `kawin`, `pekerjaan`, `status`, `kec`, `kab`, `prov`) VALUES
-(1, '3318090603080002', 'Juprianto', 'Semarang', '2020-09-01', 'LK', 'Majujaya', '01', '02', 'Islam', 'Sudah', 'Nelayan', 'Ada', 'Cisaga', 'Ciamis', 'Jawa Barat'),
+(1, '3318090603080002', 'Juprianto', 'Semarang', '2020-09-01', 'LK', 'Majujaya', '01', '02', 'Islam', 'Sudah', 'Nelayan', 'Pindah', 'Cisaga', 'Ciamis', 'Jawa Barat'),
 (2, '3318090603080012', 'Anita', 'Kudus', '2020-09-02', 'PR', 'Majujaya', '01', '02', 'Islam', 'Sudah', 'Ibu Rumah Tangga', 'Meninggal', '', '', '0'),
 (3, '3318091907080001', 'Hardi', 'Kudus', '2020-09-10', 'LK', 'Majujaya', '02', '02', 'Islam', 'Sudah', 'Petani', 'Ada', '', '', '0'),
 (4, '3318091907080022', 'Sawilah', 'Semarang', '2020-09-01', 'PR', 'Majujaya', '01', '04', 'Islam', 'Sudah', 'Ibu Rumah Tangga', 'Ada', '', '', '0'),
-(5, '3318090603080123', 'Ali Ahmadi', 'Semarang', '2020-09-01', 'LK', 'Majujaya', '01', '03', 'Islam', 'Belum', 'Pelajar', 'Ada', '', '', '0'),
+(5, '3318090603080123', 'Ali Ahmadi', 'Semarang', '2020-09-01', 'LK', 'Majujaya', '01', '03', 'Islam', 'Belum', 'Pelajar', 'Pindah', '', '', '0'),
 (6, '3318091907080001', 'Supardi', 'kudus', '2020-09-01', 'LK', 'Majujaya', '01', '04', 'Islam', 'Sudah', 'Petani', 'Meninggal', '', '', '0'),
 (7, '3318091907080007', 'Suparmi', 'Semarang', '2020-09-03', 'PR', 'Majujaya', '01', '01', 'Kristen', 'Sudah', 'Ibu Rumah Tangga', 'Pindah', '', '', '0'),
 (8, '3318090603080045', 'Rojali', 'Semarang', '2020-09-01', 'LK', 'Majujaya', '01', '02', 'Islam', 'Sudah', 'PNS', 'Ada', '', '', '0');
@@ -229,7 +268,8 @@ CREATE TABLE `tb_pindah` (
 --
 
 INSERT INTO `tb_pindah` (`id_pindah`, `id_pdd`, `tgl_pindah`, `alasan`, `desa`, `kab`, `prov`, `kec`, `rt`, `rw`) VALUES
-(1, 7, '2020-09-20', 'Kerja', 'Pamas', 'Ciamis', 'Jawa Barat', 'Cisaga', 12, 343);
+(1, 7, '2020-09-20', 'Kerja', 'Pamas', 'Ciamis', 'Jawa Barat', 'Cisaga', 12, 343),
+(2, 1, '2021-07-03', 'Kerja', 'Pamas', 'Bolang', 'Kalimantan Tengah', 'Bolang', 12, 12);
 
 --
 -- Indexes for dumped tables
@@ -249,6 +289,12 @@ ALTER TABLE `tb_anggota`
 ALTER TABLE `tb_datang`
   ADD PRIMARY KEY (`id_datang`),
   ADD KEY `pelapor` (`pelapor`);
+
+--
+-- Indexes for table `tb_kepindah`
+--
+ALTER TABLE `tb_kepindah`
+  ADD PRIMARY KEY (`id_kk`);
 
 --
 -- Indexes for table `tb_kk`
@@ -315,7 +361,7 @@ ALTER TABLE `tb_kk`
 -- AUTO_INCREMENT for table `tb_lahir`
 --
 ALTER TABLE `tb_lahir`
-  MODIFY `id_lahir` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_lahir` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_mendu`
@@ -339,7 +385,7 @@ ALTER TABLE `tb_pengguna`
 -- AUTO_INCREMENT for table `tb_pindah`
 --
 ALTER TABLE `tb_pindah`
-  MODIFY `id_pindah` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pindah` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
