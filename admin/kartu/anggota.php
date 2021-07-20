@@ -49,7 +49,7 @@
 						<option selected="selected">- Penduduk -</option>
 						<?php
                         // ambil data dari database
-                        $query = "select * from tb_pdd where status='Ada'";
+                        $query = "select * from tb_pdd where status='Ada' ";
                         $hasil = mysqli_query($koneksi, $query);
                         while ($row = mysqli_fetch_array($hasil)) {
                         ?>
@@ -96,7 +96,7 @@
 							<?php
               $no = 1;
 			  $sql = $koneksi->query("SELECT p.nik, p.nama, p.jekel, a.hubungan, a.id_anggota 
-			  from tb_pdd p inner join tb_anggota a on p.id_pend=a.id_pend where status='Ada' and id_kk=$karkel");
+			  from tb_pdd p inner join tb_anggota a on p.id_pend=a.id_pend where not status='Meninggal' and id_kk=$karkel");
               while ($data= $sql->fetch_assoc()) {
             ?>
 
@@ -163,3 +163,19 @@
       })</script>";
     }}
      //selesai proses simpan data
+//     INSERT INTO tb_kepindah (
+//     	id_kk, alasan_pindah,
+//     	alamat_tujuan, pind_desa,
+//     	pind_kab, pind_prop,
+//     	pind_rt, pind_rw,
+//     	klas_pind, jen_pind,
+//     	stt_kk_tdk_pind, stt_kk,
+//     	pind_renc, kode_pos) VALUES (
+//     	1,"2",
+//     	"dusun abs","mekar",
+//     	"mukti","res",
+//     	"12","12",
+//     	"1","1",
+//     	"2","2",
+//     	"12/2/2019", "433444");
+// INSERT INTO tb_kepindah (id_kk, alasan_pindah, alamat_tujuan, ) VALUES (1,"2","dusun abs");

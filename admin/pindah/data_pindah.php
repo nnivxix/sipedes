@@ -27,8 +27,7 @@
 
 					<?php
               $no = 1;
-			  $sql = $koneksi->query("SELECT p.id_pend, p.nik, p.nama, d.tgl_pindah, d.alasan, d.desa, d.rt, d.rw, d.kec, d.kab, d.prov, d.id_pindah from
-			  tb_pindah d inner join tb_pdd p on p.id_pend=d.id_pdd");
+			  $sql = $koneksi->query("SELECT * FROM tb_kepindah");
               while ($data= $sql->fetch_assoc()) {
             ?>
 
@@ -37,29 +36,21 @@
 							<?php echo $no++; ?>
 						</td>
 						<td>
-							<?php echo $data['nik']; ?>
+							<?php echo $data['id_kk']; ?>
 						</td>
 						<td>
-							<?php echo $data['nama']; ?>
+							nil						</td>
+						<td>
+							<?php echo $data['renc_pind']; ?>
 						</td>
 						<td>
-							<?php echo $data['tgl_pindah']; ?>
+
 						</td>
 						<td>
-							<?php echo "Desa ". $data['desa']." RT". $data['rt']. " /RW ".$data['rw']." Kecamatan ". $data['kec']." Kabupaten ".$data['kab']. " Provinsi ". $data['prov']; ?>
+							<?php echo $data['alasan_pindah']; ?>
 						</td>
 						<td>
-							<?php echo $data['alasan']; ?>
-						</td>
-						<td>
-							<a href="?page=edit-pindah&kode=<?php echo $data['id_pindah']; ?>" title="Ubah"
-							 class="btn btn-success btn-sm">
-								<i class="fa fa-edit"></i>
-							</a>
-							<a href="?page=del-pindah&kode=<?php echo $data['id_pend']; ?>" onclick="return confirm('Apakah anda yakin hapus data ini ?')"
-							 title="Hapus" class="btn btn-danger btn-sm">
-								<i class="fa fa-trash"></i>
-								</a>
+				io
 						</td>
 					</tr>
 
