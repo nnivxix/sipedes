@@ -102,6 +102,28 @@
 			</div>
 		</div>
 
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Nomor Telpon</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control"  name="pind_tel" >
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Kode Post</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control"  name="kode_pos" >
+			</div>
+		</div>
+
+
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Pemohon</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control"  name="pemohon" >
+			</div>
+		</div>
+
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Klasifikasi Pindah</label>
 				<div class="col-sm-6">
@@ -164,6 +186,8 @@
 	$alasan_pindah = $_POST['alasan_pindah'];
 	$alamat_tujuan =   $_POST['alamat_tujuan'];
 	$pind_desa =   $_POST['pind_desa'];
+	$pind_tel = $_POST['pind_tel'];
+	$kode_pos = $_POST['kode_pos'];
 	$pind_kab =   $_POST['pind_kab'];
 	$pind_kec =   $_POST['pind_kec'];
 	$pind_prop =   $_POST['pind_prop'];
@@ -174,30 +198,14 @@
 	$stt_kk_tdk_pind =   $_POST['stt_kk_tdk_pind'];
 	$stt_kk =   $_POST['stt_kk'];
 	$pind_renc =   $_POST['pind_renc'];
+	$pemohon = $_POST['pemohon'];
     if (isset ($_POST['Simpan'])){
     //mulai proses simpan data
 
-    	$sql_kepind = "INSERT INTO `tb_kepindah` (`id_kk`, `alasan_pindah`, `alamat_tujuan`, `pind_desa`, `pind_tel`, `pind_kab`, `pind_prop`, `pind_rt`, `pind_rw`, `klas_pind`, `jen_pind`, `stt_kk_tdk_pind`, `stt_kk`, `pind_renc`, `kode_pos`, `pind_kec`) VALUES ('$id_kk', '$alasan_pindah', '$alamat_tujuan', '$pind_desa', NULL, '$pind_kab', '$pind_prop', '$pind_rt', '$pind_rw', '$klas_pind', '$jen_pind', '$stt_kk_tdk_pind', '$stt_kk', '$pind_renc', NULL, NULL)";
 
-  //     $sql_simpan = "INSERT INTO tb_kepindah (
-  //   	id_kk, alasan_pindah,
-  //   	alamat_tujuan, pind_desa,
-  //   	pind_kab, pind_kec, pind_prop,
-  //   	pind_rt, pind_rw,
-  //   	klas_pind, jen_pind,
-  //   	stt_kk_tdk_pind, stt_kk,
-  //   	pind_renc VALUES (
-		// 		'$id_kk', '$alasan_pindah',
-		// 		'$alamat_tujuan','$pind_desa',
-		// 		'$pind_kab', '$pind_kec', '$pind_prop',
-		// 		'$pind_rt', '$pind_rw',
-		// 		'$klas_pind', '$jen_pind',
-		// 		'$stt_kk_tdk_pind', '$stt_kk',
-		// 		'$pind_renc'
-		// )";
-		// // $post_sql_data = mysqli_real_escape_string($koneksi)
+    	$sql_pindah = "INSERT INTO `tb_kepindah` (`alasan_pindah`, `alamat_tujuan`, `pind_desa`, `pind_tel`, `pind_kab`, `pind_prop`, `pind_rt`, `pind_rw`, `klas_pind`, `jen_pind`, `stt_kk_tdk_pind`, `stt_kk`, `pind_renc`, `kode_pos`, `pind_kec`, `id_kk`, `pemohon`) VALUES ('$alasan_pindah', '$alamat_tujuan', '$pind_desa', '$pind_tel', '$pind_kab', '$pind_prop', '$pind_rt', '$pind_rw', '$klas_pind', '$jen_pind', '$stt_kk_tdk_pind', '$stt_kk', '$pind_renc', $kode_pos, '$pind_kec', '$id_kk', '$pemohon')";
 
-		$query_simpan = mysqli_query($koneksi, $sql_kepind);
+		$query_simpan = mysqli_query($koneksi, $sql_pindah);
 		
 		// $sql_ubah = "UPDATE tb_pdd SET
 		// 	status='Pindah'

@@ -22,15 +22,19 @@
 						<option selected="selected">- Pilih Data -</option>
 						<?php
 				// ambil data dari database
-				$query = "select * from tb_kk";
+				$query = "SELECT * FROM tb_kk JOIN tb_kepindah ON tb_kk.id_kk = tb_kepindah.id_kk";
+				// var_dump($query);
 				$hasil = mysqli_query($koneksi, $query);
 				while ($row = mysqli_fetch_array($hasil)) {
+
+
 				?>
-						<option value="<?php echo $row['id_kk'] ?>">
-							<?php echo $row['kepala'] ?>
+				<option value="<?php echo $row['id_kk'] ?>">
+							<?php echo $row['no_kk'] .' - '. $row['kepala'] ?>
 						</option>
 						<?php	}	?>
 					</select>
+
 				</div>
 			</div>
 

@@ -49,7 +49,7 @@
 						<option selected="selected">- Penduduk -</option>
 						<?php
                         // ambil data dari database
-                        $query = "select * from tb_pdd where status='Ada' ";
+                        $query = "select * from tb_pdd where not status='Meninggal' ";
                         $hasil = mysqli_query($koneksi, $query);
                         while ($row = mysqli_fetch_array($hasil)) {
                         ?>
