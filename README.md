@@ -37,6 +37,9 @@ $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.i
 - [Insert Date in MySQL](https://www.ntchosting.com/encyclopedia/databases/mysql/insert-date/)
 - [Cara membuat Tabel di phpMyAdmin dan Relasinya](https://kelasprogrammer.com/cara-membuat-tabel-di-phpmyadmin/#Memulai_membuat_tabel_di_phpMyAdmin)
 - [SQL JOIN - w3schools](https://www.w3schools.com/sql/sql_join.asp)
+- [Get selected value in dropdown list using JavaScript](https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript)
+- [JavaScript change Event](https://www.javascripttutorial.net/javascript-dom/javascript-change-event/)
+- [thanks for this repo - Chain Select](https://github.com/agitnaeta/chainselect/blob/master/app.js#L6-L30)
 
 
 ## Testing
