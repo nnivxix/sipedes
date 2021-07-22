@@ -88,6 +88,7 @@
 								<th>Nama</th>
 								<th>Jekel</th>
 								<th>Hub Keluarga</th>
+								<th>Sta</th>
 								<th>Aksi</th>
 							</tr>
 						</thead>
@@ -95,7 +96,7 @@
 
 							<?php
               $no = 1;
-			  $sql = $koneksi->query("SELECT p.nik, p.nama, p.jekel, a.hubungan, a.id_anggota 
+			  $sql = $koneksi->query("SELECT p.nik, p.nama, p.jekel,p.status, a.hubungan, a.id_anggota
 			  from tb_pdd p inner join tb_anggota a on p.id_pend=a.id_pend where not status='Meninggal' and id_kk=$karkel");
               while ($data= $sql->fetch_assoc()) {
             ?>
@@ -112,6 +113,9 @@
 								</td>
 								<td>
 									<?php echo $data['hubungan']; ?>
+								</td>
+								<td>
+									<?php echo $data['status']; ?>
 								</td>
 								<td>
 									<a href="?page=del-anggota&kode=<?php echo $data['id_anggota']; ?>" onclick="return confirm('Apakah anda yakin hapus data ini ?')"

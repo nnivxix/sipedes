@@ -27,8 +27,9 @@ $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.i
 ## edit
 - [ ] tampilakan data dari mysql (kepindah)
 - [ ] cetak surat
-- [ ] + anggota keluarga yang pindah
-- [ ] ambil nama untuk get anggota dari `tb_kk`
+- [x] + anggota keluarga yang pindah
+- [x] ambil nama untuk get anggota dari `tb_kk`
+- [x] POST id_pend && POST id_kk
 
 
 ## Link Penyelamat
@@ -36,3 +37,10 @@ $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.i
 - [Insert Date in MySQL](https://www.ntchosting.com/encyclopedia/databases/mysql/insert-date/)
 - [Cara membuat Tabel di phpMyAdmin dan Relasinya](https://kelasprogrammer.com/cara-membuat-tabel-di-phpmyadmin/#Memulai_membuat_tabel_di_phpMyAdmin)
 - [SQL JOIN - w3schools](https://www.w3schools.com/sql/sql_join.asp)
+
+
+## Testing
+```bash
+http://localhost:8989/anggota?kk=1&anggota=1
+# untuk mencari id_kk = 1 dan anggota dengan id_kk=1
+```

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 21, 2021 at 01:03 AM
+-- Generation Time: Jul 23, 2021 at 01:01 AM
 -- Server version: 8.0.25-0ubuntu0.20.10.1
 -- PHP Version: 7.4.9
 
@@ -32,22 +32,23 @@ CREATE TABLE `tb_anggota` (
   `id_anggota` int NOT NULL,
   `id_kk` int NOT NULL,
   `id_pend` int NOT NULL,
-  `hubungan` varchar(15) NOT NULL
+  `hubungan` varchar(15) NOT NULL,
+  `nama_pdd` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_anggota`
 --
 
-INSERT INTO `tb_anggota` (`id_anggota`, `id_kk`, `id_pend`, `hubungan`) VALUES
-(1, 1, 1, 'Kepala Keluarga'),
-(2, 1, 2, 'Istri'),
-(3, 2, 3, 'Kepala Keluarga'),
-(4, 2, 4, 'Istri'),
-(5, 3, 6, 'Kepala Keluarga'),
-(6, 3, 7, 'Istri'),
-(7, 1, 5, 'Anak'),
-(9, 3, 8, 'Anak');
+INSERT INTO `tb_anggota` (`id_anggota`, `id_kk`, `id_pend`, `hubungan`, `nama_pdd`) VALUES
+(1, 1, 1, 'Kepala Keluarga', ''),
+(2, 1, 2, 'Istri', ''),
+(3, 2, 3, 'Kepala Keluarga', ''),
+(4, 2, 4, 'Istri', ''),
+(5, 3, 6, 'Kepala Keluarga', ''),
+(6, 3, 7, 'Istri', ''),
+(7, 1, 5, 'Anak', ''),
+(9, 3, 8, 'Anak', '');
 
 -- --------------------------------------------------------
 
@@ -78,7 +79,6 @@ INSERT INTO `tb_datang` (`id_datang`, `nik`, `nama_datang`, `jekel`, `tgl_datang
 --
 
 CREATE TABLE `tb_kepindah` (
-  `id_kk` int NOT NULL,
   `alasan_pindah` varchar(1) NOT NULL,
   `alamat_tujuan` varchar(16) NOT NULL,
   `pind_desa` varchar(16) NOT NULL,
@@ -93,18 +93,19 @@ CREATE TABLE `tb_kepindah` (
   `stt_kk` varchar(1) NOT NULL,
   `pind_renc` date NOT NULL,
   `kode_pos` int DEFAULT NULL,
-  `pind_kec` varchar(12) DEFAULT NULL
+  `pind_kec` varchar(12) DEFAULT NULL,
+  `id_kk` int NOT NULL,
+  `pemohon` varchar(15) NOT NULL,
+  `id_surat` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_kepindah`
 --
 
-INSERT INTO `tb_kepindah` (`id_kk`, `alasan_pindah`, `alamat_tujuan`, `pind_desa`, `pind_tel`, `pind_kab`, `pind_prop`, `pind_rt`, `pind_rw`, `klas_pind`, `jen_pind`, `stt_kk_tdk_pind`, `stt_kk`, `pind_renc`, `kode_pos`, `pind_kec`) VALUES
-(1, '2', 'dusun abs', 'mekar', NULL, 'mukti', 'res', '12', '12', '1', '1', '2', '2', '2019-12-23', 433444, NULL),
-(2, '1', 'Kuri', 'Kera', NULL, 'ert', 'uit', '56', '12', '1', '2', '2', '3', '2021-07-09', NULL, NULL),
-(3, '1', 'Dusun Maju', 'qwqw', NULL, 'ciamis', 'qwwqwq', '1', '2', '1', '1', '1', '1', '2021-07-09', NULL, NULL),
-(5, '1', 'Dusun Maju', 'qwqw', NULL, 'ciamis', 'qwwqwq', '1', '2', '1', '2', '2', '1', '2021-07-02', NULL, NULL);
+INSERT INTO `tb_kepindah` (`alasan_pindah`, `alamat_tujuan`, `pind_desa`, `pind_tel`, `pind_kab`, `pind_prop`, `pind_rt`, `pind_rw`, `klas_pind`, `jen_pind`, `stt_kk_tdk_pind`, `stt_kk`, `pind_renc`, `kode_pos`, `pind_kec`, `id_kk`, `pemohon`, `id_surat`) VALUES
+('1', 'Dusun Maju', 'Desa Mundur', '', 'Ciamis', 'Jawa Utara', '1', '2', '1', '1', '1', '1', '2021-07-01', 45678, 'Majdes', 1, 'Siswanto', 5),
+('1', 'Dusun Maju', 'Desa Mundur', '1222', 'Ciamis', 'Jawa Utara', '1', '4', '1', '1', '1', '1', '2021-07-02', 45678, 'Majdes', 3, 'Siswanto', 6);
 
 -- --------------------------------------------------------
 
@@ -294,7 +295,8 @@ ALTER TABLE `tb_datang`
 -- Indexes for table `tb_kepindah`
 --
 ALTER TABLE `tb_kepindah`
-  ADD PRIMARY KEY (`id_kk`);
+  ADD UNIQUE KEY `id_surat` (`id_surat`),
+  ADD KEY `id_kk` (`id_kk`);
 
 --
 -- Indexes for table `tb_kk`
@@ -350,6 +352,12 @@ ALTER TABLE `tb_anggota`
 --
 ALTER TABLE `tb_datang`
   MODIFY `id_datang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tb_kepindah`
+--
+ALTER TABLE `tb_kepindah`
+  MODIFY `id_surat` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_kk`

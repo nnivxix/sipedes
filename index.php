@@ -630,6 +630,7 @@
 	<script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
 	<script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
 	<script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+	<script src="scripts/suket-pdh.js"></script>
 
 	<script>
 		$(function() {

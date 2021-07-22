@@ -50,7 +50,7 @@
 							<?php echo $data['alasan_pindah']; ?>
 						</td>
 						<td>
-				io
+
 						</td>
 					</tr>
 

@@ -42,7 +42,7 @@
 
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Alasan</label>
-				<div class="col-sm-6">
+				<div class="col-sm-10">
 					<select name="alasan_pindah">
 						<option value="1">Pekerjaan</option>
 						<option value="2">Pendidikan</option>
@@ -57,7 +57,7 @@
 <p style="font-size: 1.6em; font-weight: 800;">Alamat Tujuan: </p>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Alamat Tujuan</label>
-				<div class="col-sm-6">
+				<div class="col-sm-10">
 					<input type="text" class="form-control" placeholder="dusun abncd" id="desa" name="alamat_tujuan"
 					 required>
 				</div>

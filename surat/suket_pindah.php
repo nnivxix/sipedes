@@ -7,34 +7,15 @@
 		<div class="card-body">
 
 			<div  class="form-group row">
-				<label class="col-sm-2 col-form-label">Jenis Surat</label>
-					<div class="col-sm-10">
-					<select name="jenis_surat" id="id_pend" class="form-control select2bs4" required>
-						<!-- <option selected="selected">Pilih Jenis Surat</option> -->
-						<option selected value="Surat Keterangan Pindah Datang WNI">Surat Datang</option>
+				<label class="col-sm-3 col-form-label">Nama Kepala Keluarga</label>
+				<div class="col-sm-9" style="margin-bottom:1em;">
+					<select name="id_kk" id="id_kk" class="kk form-control select2bs4" onchange="getIdKk()">
+
 					</select>
 				</div>
 
-
-				<label class="col-sm-2 col-form-label">Penduduk</label>
-				<div class="col-sm-10">
-					<select name="id_kk" id="id_kk" class="form-control select2bs4" required>
-						<option selected="selected">- Pilih Data -</option>
-						<?php
-				// ambil data dari database
-				$query = "SELECT * FROM tb_kk JOIN tb_kepindah ON tb_kk.id_kk = tb_kepindah.id_kk";
-				// var_dump($query);
-				$hasil = mysqli_query($koneksi, $query);
-				while ($row = mysqli_fetch_array($hasil)) {
-
-
-				?>
-				<option value="<?php echo $row['id_kk'] ?>">
-							<?php echo $row['no_kk'] .' - '. $row['kepala'] ?>
-						</option>
-						<?php	}	?>
-					</select>
-
+				<label class="col-sm-3 col-form-label">Anggota KK</label>
+				<div class="col-sm-9 cxbx">
 				</div>
 			</div>
 
