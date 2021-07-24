@@ -15,8 +15,8 @@
 				<thead>
 					<tr>
 						<th>No</th>
-						<th>NIK</th>
-						<th>Nama</th>
+						<th>KK</th>
+						<th>Nama Kepala Kel.</th>
 						<th>Tanggal</th>
 						<th>Tujuan</th>
 						<th>Alasan</th>
@@ -29,6 +29,7 @@
               $no = 1;
 			  $sql = $koneksi->query("SELECT * FROM tb_kepindah");
               while ($data= $sql->fetch_assoc()) {
+              	var_dump($data);
             ?>
 
 					<tr>
@@ -36,15 +37,16 @@
 							<?php echo $no++; ?>
 						</td>
 						<td>
-							<?php echo $data['id_kk']; ?>
+							<?php echo $data['no_kk']; ?>
 						</td>
 						<td>
-							nil						</td>
-						<td>
-							<?php echo $data['renc_pind']; ?>
+							<?php echo $data['kepala']; ?>
 						</td>
 						<td>
-
+							<?php echo $data['pind_renc']; ?>
+						</td>
+						<td>
+							<?php echo "Dusun ". $data['alamat_tujuan'] . " RT ". $data['pind_rt']. " RW " . $data['pind_rw']. " Kecamatan ". $data['pind_kec']. " Kabupaten " . $data['pind_kab']. " Provinsi ". $data['pind_prop'];?>
 						</td>
 						<td>
 							<?php echo $data['alasan_pindah']; ?>

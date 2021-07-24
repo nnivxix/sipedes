@@ -25,17 +25,26 @@
 	function getIdKk() {
 		console.log(idkk.value);
 		let urlAnggota = 'http://localhost:8989/anggota?kk='+idkk.value+'&anggota=0'
+		console.log(urlAnggota);
 		fetch(urlAnggota)
 		.then(res => res.json())
 		.then(data => {
-			let cxbx = document.querySelector('.cxbx');
-			data.forEach( v => {
-				cxbx.innerHTML = `
+			console.log(data)
+
+
+			// option.value   = v.id_pend
+			// option.name = v.nama
+			// option.
+			// option.innerHTML = v.nama
+			let option = ""
+			data.forEach( (v,i ) => {
+
+				option += `
 					<div class="form-check">
-					  <input id="${v.id_pend}" type="checkbox" class="form-check-input" name="id_pend" value="${v.id_pend}">
+					  <input id="${v.id_pend}" type="checkbox" class="form-check-input" name="id_pend[]" value="${v.id_pend}">
 					  <label class="form-check-label" for="${v.id_pend}" >${v.nama}</label>
-					</div>
-				`
+				</div>`
 			})
+			document.querySelector('.cxbx').innerHTML = option;
 		} )
 	}

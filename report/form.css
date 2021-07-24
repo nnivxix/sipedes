@@ -32,6 +32,9 @@ h1{
 td{
 	font-size: 13px;
 }
+.td_nik{
+	padding: 0 1px;
+}
 
 .nokk, .kepala__keluarga, .alamat, .alasan{
 	grid-column: 1/2;
@@ -266,6 +269,7 @@ td.td__tgl__pind{
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	width: 90%;
+	margin: 0 auto;
 
 }
 

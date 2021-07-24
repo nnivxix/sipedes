@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 23, 2021 at 01:01 AM
+-- Generation Time: Jul 25, 2021 at 01:03 AM
 -- Server version: 8.0.25-0ubuntu0.20.10.1
 -- PHP Version: 7.4.9
 
@@ -32,23 +32,23 @@ CREATE TABLE `tb_anggota` (
   `id_anggota` int NOT NULL,
   `id_kk` int NOT NULL,
   `id_pend` int NOT NULL,
-  `hubungan` varchar(15) NOT NULL,
-  `nama_pdd` varchar(20) NOT NULL
+  `hubungan` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_anggota`
 --
 
-INSERT INTO `tb_anggota` (`id_anggota`, `id_kk`, `id_pend`, `hubungan`, `nama_pdd`) VALUES
-(1, 1, 1, 'Kepala Keluarga', ''),
-(2, 1, 2, 'Istri', ''),
-(3, 2, 3, 'Kepala Keluarga', ''),
-(4, 2, 4, 'Istri', ''),
-(5, 3, 6, 'Kepala Keluarga', ''),
-(6, 3, 7, 'Istri', ''),
-(7, 1, 5, 'Anak', ''),
-(9, 3, 8, 'Anak', '');
+INSERT INTO `tb_anggota` (`id_anggota`, `id_kk`, `id_pend`, `hubungan`) VALUES
+(2, 1, 2, 'Istri'),
+(3, 2, 3, 'Kepala Keluarga'),
+(4, 2, 4, 'Istri'),
+(5, 3, 6, 'Kepala Keluarga'),
+(6, 3, 7, 'Istri'),
+(9, 3, 8, 'Anak'),
+(10, 4, 9, 'Anak'),
+(12, 1, 5, 'Anak'),
+(13, 1, 9, 'Anak');
 
 -- --------------------------------------------------------
 
@@ -104,8 +104,8 @@ CREATE TABLE `tb_kepindah` (
 --
 
 INSERT INTO `tb_kepindah` (`alasan_pindah`, `alamat_tujuan`, `pind_desa`, `pind_tel`, `pind_kab`, `pind_prop`, `pind_rt`, `pind_rw`, `klas_pind`, `jen_pind`, `stt_kk_tdk_pind`, `stt_kk`, `pind_renc`, `kode_pos`, `pind_kec`, `id_kk`, `pemohon`, `id_surat`) VALUES
-('1', 'Dusun Maju', 'Desa Mundur', '', 'Ciamis', 'Jawa Utara', '1', '2', '1', '1', '1', '1', '2021-07-01', 45678, 'Majdes', 1, 'Siswanto', 5),
-('1', 'Dusun Maju', 'Desa Mundur', '1222', 'Ciamis', 'Jawa Utara', '1', '4', '1', '1', '1', '1', '2021-07-02', 45678, 'Majdes', 3, 'Siswanto', 6);
+('1', 'Dusun Maju', 'Desa Mundur', '', 'Ciamis', 'Jawa Utara', '01', '27', '1', '1', '1', '1', '2021-07-01', 45678, 'Majdes', 1, 'Siswanto', 5),
+('1', 'Dusun Maju', 'Desa Mundur', '1222', 'Ciamis', 'Jawa Utara', '11', '14', '1', '1', '1', '1', '2021-07-02', 45678, 'Majdes', 3, 'Siswanto', 6);
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,7 @@ CREATE TABLE `tb_kk` (
   `kab` varchar(20) NOT NULL,
   `prov` varchar(20) NOT NULL,
   `alamat_kk` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `kodepos__kk` int NOT NULL
+  `kodepos__kk` varchar(5) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -132,10 +132,10 @@ CREATE TABLE `tb_kk` (
 --
 
 INSERT INTO `tb_kk` (`id_kk`, `no_kk`, `kepala`, `desa`, `rt`, `rw`, `kec`, `kab`, `prov`, `alamat_kk`, `kodepos__kk`) VALUES
-(1, '1010202030304040', 'Juprianto', 'Majujaya', '01', '02', 'Semarang', 'Semarang', 'Jawa Tengahh', '', 0),
-(2, '1010202030304012', 'Hardi', 'Majujaya', '02', '02', 'Semarang', 'Semarang', 'Jawa Tengahh', '', 0),
-(3, '1010202030301111', 'Supardi', 'Majujaya', '02', '02', 'Semarang', 'Semarang', 'Jawa Tengahh', '', 0),
-(4, '12300000000000321', 'Ahmad', 'Majujaya', '02', '02', 'Semarang', 'Semarang', 'Jawa Tengahh', '', 0);
+(1, '1010202030304040', 'Juprianto', 'Majujaya', '01', '02', 'Semarang', 'Semarang', 'Jawa Tengahh', 'Dusun Mundur', '46574'),
+(2, '1010202030304012', 'Hardi', 'Majujaya', '02', '02', 'Semarang', 'Semarang', 'Jawa Tengahh', 'Dusun Mundur', '46574'),
+(3, '1010202030301111', 'Supardi', 'Majujaya', '02', '02', 'Semarang', 'Semarang', 'Jawa Tengahh', 'Dusun Mundur', '46574'),
+(4, '12300000000000321', 'Ahmad', 'Majujaya', '02', '02', 'Semarang', 'Semarang', 'Jawa Tengahh', 'Dusun Mundur', '46574');
 
 -- --------------------------------------------------------
 
@@ -219,9 +219,10 @@ INSERT INTO `tb_pdd` (`id_pend`, `nik`, `nama`, `tempat_lh`, `tgl_lh`, `jekel`, 
 (3, '3318091907080001', 'Hardi', 'Kudus', '2020-09-10', 'LK', 'Majujaya', '02', '02', 'Islam', 'Sudah', 'Petani', 'Ada', '', '', '0'),
 (4, '3318091907080022', 'Sawilah', 'Semarang', '2020-09-01', 'PR', 'Majujaya', '01', '04', 'Islam', 'Sudah', 'Ibu Rumah Tangga', 'Ada', '', '', '0'),
 (5, '3318090603080123', 'Ali Ahmadi', 'Semarang', '2020-09-01', 'LK', 'Majujaya', '01', '03', 'Islam', 'Belum', 'Pelajar', 'Pindah', '', '', '0'),
-(6, '3318091907080001', 'Supardi', 'kudus', '2020-09-01', 'LK', 'Majujaya', '01', '04', 'Islam', 'Sudah', 'Petani', 'Meninggal', '', '', '0'),
+(6, '3318091907080001', 'Supardi', 'kudus', '2020-09-01', 'LK', 'Majujaya', '01', '04', 'Islam', 'Sudah', 'Petani', 'Meninggal', 'keda', 'kudus', 'Jawa Tengah'),
 (7, '3318091907080007', 'Suparmi', 'Semarang', '2020-09-03', 'PR', 'Majujaya', '01', '01', 'Kristen', 'Sudah', 'Ibu Rumah Tangga', 'Pindah', '', '', '0'),
-(8, '3318090603080045', 'Rojali', 'Semarang', '2020-09-01', 'LK', 'Majujaya', '01', '02', 'Islam', 'Sudah', 'PNS', 'Ada', '', '', '0');
+(8, '3318090603080045', 'Rojali', 'Semarang', '2020-09-01', 'LK', 'Majujaya', '01', '02', 'Islam', 'Sudah', 'PNS', 'Ada', '', '', '0'),
+(9, '1234567547890004', 'Bayu', 'Jakarta', '2021-07-01', 'LK', 'Pamas', '12', '34', 'Islam', 'Belum', 'Pelajar', 'Pindah', 'Bolang', 'Bolang', 'Kalimantan Tengah');
 
 -- --------------------------------------------------------
 
@@ -345,7 +346,7 @@ ALTER TABLE `tb_pindah`
 -- AUTO_INCREMENT for table `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
-  MODIFY `id_anggota` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_anggota` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tb_datang`
@@ -381,7 +382,7 @@ ALTER TABLE `tb_mendu`
 -- AUTO_INCREMENT for table `tb_pdd`
 --
 ALTER TABLE `tb_pdd`
-  MODIFY `id_pend` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pend` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_pengguna`

@@ -11,7 +11,7 @@
 	// $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.id_pend) where tb_mendu.id_mendu = '$id'";
 			$sql_tampil = "SELECT
 			m.id_mendu, m.tgl_mendu, m.tempat_mendu, m.sebab,
-			p.nik, p.nama, p.tempat_lh, p.tgl_lh,  p.jekel, p.desa, p.rt, p.rw, p.agama, p.pekerjaan
+			p.nik, p.nama, p.tempat_lh,p.kec, p.kab, p.prov, p.tgl_lh,  p.jekel, p.desa, p.rt, p.rw, p.agama, p.pekerjaan
 			from tb_mendu m inner join tb_pdd p
 			on m.id_pdd = p.id_pend
 			where id_mendu ='$id'";
@@ -118,7 +118,7 @@
 						<tr>
 							<td>Alamat</td>
 							<td class="indent-colon">:</td>
-							<td><?php echo "Desa ". $data['desa']. " RT ". $data['rt']. " RW ". $data['rw']; ?></td>
+							<td><?php echo "Desa ". $data['desa']. " RT ". $data['rt']. " RW ". $data['rw']. " Kecamatan ". $data['kec']. " Kabupaten ". $data['kab']. " Provinsi ". $data['prov']; ?></td>
 						</tr>
 					</tbody>
 				</table>

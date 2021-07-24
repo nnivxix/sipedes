@@ -9,13 +9,17 @@
 			<div  class="form-group row">
 				<label class="col-sm-3 col-form-label">Nama Kepala Keluarga</label>
 				<div class="col-sm-9" style="margin-bottom:1em;">
+
 					<select name="id_kk" id="id_kk" class="kk form-control select2bs4" onchange="getIdKk()">
 
 					</select>
 				</div>
 
 				<label class="col-sm-3 col-form-label">Anggota KK</label>
-				<div class="col-sm-9 cxbx">
+				<div class="col-sm-9 ">
+					<div class="form-check cxbx">
+
+					</div>
 				</div>
 			</div>
 

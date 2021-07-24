@@ -6,7 +6,7 @@
 	}
 
 	$tanggal = date("m/y");
-	$tgl = date("d/M/y");
+	$tgl = date("d/M/Y");
 	$sql_tampil = "select * from tb_pdd
 									where id_pend ='$id'";
 

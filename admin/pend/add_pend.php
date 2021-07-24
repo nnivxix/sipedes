@@ -31,7 +31,7 @@
 			</div>
 
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Jenis Kelain</label>
+				<label class="col-sm-2 col-form-label">Jenis Kelamin</label>
 				<div class="col-sm-3">
 					<select name="jekel" id="jekel" class="form-control">
 						<option>- Pilih -</option>
@@ -118,13 +118,16 @@
 
     if (isset ($_POST['Simpan'])){
     //mulai proses simpan data
-        $sql_simpan = "INSERT INTO tb_pdd (nik, nama, tempat_lh, tgl_lh, jekel, desa, rt, rw, agama, kawin, pekerjaan, status) VALUES (
+        $sql_simpan = "INSERT INTO tb_pdd (nik, nama, tempat_lh, tgl_lh, jekel, desa, kec, kab, prov,  rt, rw, agama, kawin, pekerjaan, status) VALUES (
             '".$_POST['nik']."',
             '".$_POST['nama']."',
 			'".$_POST['tempat_lh']."',
 			'".$_POST['tgl_lh']."',
             '".$_POST['jekel']."',
             '".$_POST['desa']."',
+            '".$_POST['kec']."',
+            '".$_POST['kab']."',
+            '".$_POST['prov']."',
 			'".$_POST['rt']."',
 			'".$_POST['rw']."',
 			'".$_POST['agama']."',
