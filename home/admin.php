@@ -37,9 +37,9 @@
     $datang=$data['datang'];
   }
 
-  $sql = $koneksi->query("SELECT COUNT(id_pindah) as pindah  from tb_pindah");
+  $sql = $koneksi->query("SELECT COUNT(id_surat) as surat_pindah  from tb_kepindah");
   while ($data= $sql->fetch_assoc()) {
-    $pindah=$data['pindah'];
+    $pindah=$data['surat_pindah'];
   }
 
 ?>
