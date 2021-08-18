@@ -3,7 +3,7 @@
 		<h3 class="card-title">
 			<i class="fa fa-file"></i> Su-Ket Domisili</h3>
 	</div>
-	<form action="./report/cetak_domisili.php" method="post" enctype="multipart/form-data">
+	<form action="./report/cetak_domisili.php" method="POST" enctype="multipart/form-data">
 		<div class="card-body">
 
 			<div class="form-group row">
@@ -22,16 +22,18 @@
 							-
 							<?php echo $row['nama'] ?>
 						</option>
-						<?php
-				}
-				?>
+					<?php } ?>
 					</select>
 				</div>
 			</div>
-
 		</div>
 		<div class="card-footer">
-			<button type="submit" class="btn btn-info" name="btnCetak" target="_blank">Cetak Surat</button>
+			<input type="submit" name="Simpan" value="Simpan" class="btn btn-info">
+			<a href="?page=data-pindah" title="Kembali" class="btn btn-secondary">Batal</a>
 		</div>
 	</form>
 </div>
+
+
+
+

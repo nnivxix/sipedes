@@ -11,7 +11,7 @@
 	   let dom = document.getElementById(id)
 
 	   data.map((v)=>{
-	       let option = document.createElement('option')
+	       var option = document.createElement('option')
 	       option.value   = v.id_kk
 	       option.innerHTML = v.kepala + ' - ' + v.no_kk
 

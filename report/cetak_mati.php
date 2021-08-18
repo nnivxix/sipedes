@@ -3,11 +3,17 @@
 	
 	if (isset ($_POST['Cetak'])){
 		$id = $_POST['id_mendu'];
-		// var_dump($id);
+		$now = date("Y-m-d");
+		$uniqueid = uniqid(rand());
+		$sql_simpan = "INSERT INTO rekap_pdd(id, id_pend, tgl_cetak, jenis_surat)
+			VALUES('$uniqueid', '$id', '$now', 'mati')";
+
+		$query_simpan = mysqli_query($koneksi, $sql_simpan);
+		// mysqli_close($koneksi);
 	}
 
 	$tanggal = date("m/y");
-	$tgl = date("d/M/y");
+	$tgl = date("d-M-y");
 	// $sql_tampil = "SELECT * FROM tb_mendu JOIN tb_pdd ON (tb_mendu.id_pdd = tb_pdd.id_pend) where tb_mendu.id_mendu = '$id'";
 			$sql_tampil = "SELECT
 			m.id_mendu, m.tgl_mendu, m.tempat_mendu, m.sebab,

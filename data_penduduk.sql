@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7deb1
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 25, 2021 at 01:03 AM
--- Server version: 8.0.25-0ubuntu0.20.10.1
--- PHP Version: 7.4.9
+-- Generation Time: Aug 18, 2021 at 07:10 PM
+-- Server version: 8.0.26-0ubuntu0.20.04.2
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,48 @@ SET time_zone = "+00:00";
 --
 -- Database: `data_penduduk`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rekap_pdd`
+--
+
+CREATE TABLE `rekap_pdd` (
+  `id` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `id_pend` varchar(16) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `tgl_cetak` date NOT NULL,
+  `jenis_surat` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `rekap_pdd`
+--
+
+INSERT INTO `rekap_pdd` (`id`, `id_pend`, `tgl_cetak`, `jenis_surat`) VALUES
+('1164038773611cc577297ff', '2', '2021-08-18', 'lahir'),
+('9252946611cc5858c882', '2', '2021-08-18', 'mati'),
+('948802725611cc3b3720a8', '3', '2021-08-18', 'domisili');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rekap_pdh`
+--
+
+CREATE TABLE `rekap_pdh` (
+  `id` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `id_kk` varchar(16) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `pemohon` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `tgl_cetak` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `rekap_pdh`
+--
+
+INSERT INTO `rekap_pdh` (`id`, `id_kk`, `pemohon`, `tgl_cetak`) VALUES
+('1462684109611ce98aa2643', '3', 'Siswanto', '2021-08-18');
 
 -- --------------------------------------------------------
 
@@ -160,7 +202,8 @@ INSERT INTO `tb_lahir` (`id_lahir`, `nama`, `tgl_lh`, `jekel`, `id_kk`, `tempat_
 (1, 'Ahmad Yusuf', '2020-09-21', 'LK', 4, 'Ciamis'),
 (2, 'Bayu', '2021-07-01', 'LK', 3, 'Jakarta'),
 (3, 'Rina', '2021-07-02', 'PR', 2, 'Ciamis'),
-(4, 'SUmarno', '2021-07-02', 'LK', 2, 'Ciamis');
+(4, 'SUmarno', '2021-07-02', 'LK', 2, 'Ciamis'),
+(5, 'TT', '2021-08-14', 'PR', 3, 'TTRTRT');
 
 -- --------------------------------------------------------
 
@@ -278,6 +321,18 @@ INSERT INTO `tb_pindah` (`id_pindah`, `id_pdd`, `tgl_pindah`, `alasan`, `desa`, 
 --
 
 --
+-- Indexes for table `rekap_pdd`
+--
+ALTER TABLE `rekap_pdd`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rekap_pdh`
+--
+ALTER TABLE `rekap_pdh`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
@@ -370,7 +425,7 @@ ALTER TABLE `tb_kk`
 -- AUTO_INCREMENT for table `tb_lahir`
 --
 ALTER TABLE `tb_lahir`
-  MODIFY `id_lahir` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_lahir` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_mendu`

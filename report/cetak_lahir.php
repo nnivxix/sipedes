@@ -3,6 +3,13 @@
 	
 	if (isset ($_POST['Cetak'])){
 		$id = $_POST['lahir'];
+		$now = date("Y-m-d");
+		$uniqueid = uniqid(rand());
+		$sql_simpan = "INSERT INTO rekap_pdd(id, id_pend, tgl_cetak, jenis_surat)
+			VALUES('$uniqueid', '$id', '$now', 'lahir')";
+
+		$query_simpan = mysqli_query($koneksi, $sql_simpan);
+		// mysqli_close($koneksi);
 	}
 
 	$tanggal = date("m/y");
@@ -171,7 +178,7 @@ while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
 	</main>
 
 	<script>
-	// window.print()
+	window.print()
 </script>
 </body>
 </html>

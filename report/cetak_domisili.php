@@ -1,12 +1,20 @@
 <?php
 	include "../inc/koneksi.php";
 	
-	if (isset ($_POST['btnCetak'])){
-	$id = $_POST['id_pend'];
-	}
+	if (isset ($_POST['Simpan'])){
+		$id = $_POST['id_pend'];
+		// $id_pend = isset($_POST['id_pend']) ? $_POST['id_pend'] : ' ' ;
+		$now = date("Y-m-d");
+		$uniqueid = uniqid(rand());
+		$sql_simpan = "INSERT INTO rekap_pdd(id, id_pend, tgl_cetak, jenis_surat)
+			VALUES('$uniqueid', '$id', '$now', 'domisili')";
+
+		$query_simpan = mysqli_query($koneksi, $sql_simpan);
+		// mysqli_close($koneksi);
+}
 
 	$tanggal = date("m/y");
-	$tgl = date("d/M/Y");
+	$tgl = date("d-M-Y");
 	$sql_tampil = "select * from tb_pdd
 									where id_pend ='$id'";
 

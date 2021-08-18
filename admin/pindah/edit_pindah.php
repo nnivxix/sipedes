@@ -177,23 +177,23 @@
 
 <?php
 
-	$id_kk = $_POST['id_kk'];
-	$alasan_pindah = $_POST['alasan_pindah'];
-	$alamat_tujuan =   $_POST['alamat_tujuan'];
-	$pind_desa =   $_POST['pind_desa'];
-	$pind_tel = $_POST['pind_tel'];
-	$kode_pos = $_POST['kode_pos'];
-	$pind_kab =   $_POST['pind_kab'];
-	$pind_kec =   $_POST['pind_kec'];
-	$pind_prop =   $_POST['pind_prop'];
-	$pind_rt =   $_POST['pind_rt'];
-	$pind_rw =   $_POST['pind_rw'];
-	$klas_pind =   $_POST['klas_pind'];
-	$jen_pind =   $_POST['jen_pind'];
-	$stt_kk_tdk_pind =   $_POST['stt_kk_tdk_pind'];
-	$stt_kk =   $_POST['stt_kk'];
-	$pind_renc =   $_POST['pind_renc'];
-	$pemohon = $_POST['pemohon'];
+$id_kk = isset($_POST['id_kk']) ? $_POST['id_kk'] : ' ';
+$alasan_pindah = isset($_POST['alasan_pindah']) ? $_POST['alasan_pindah'] : ' ' ;
+$alamat_tujuan = isset($_POST['alamat_tujuan']) ? $_POST['alamat_tujuan'] : ' ' ; 
+$pind_desa = isset($_POST['pind_desa']) ? $_POST['pind_desa'] : ' ' ;
+$pind_tel = isset($_POST['pind_tel']) ? $_POST['pind_tel'] : ' ' ;
+$kode_pos = isset($_POST['kode_pos']) ? $_POST['kode_pos'] : ' ' ;
+$pind_kab = isset($_POST['pind_kab']) ? $_POST['pind_kab'] : ' ' ;
+$pind_kec = isset($_POST['pind_kec']) ? $_POST['pind_kec'] : ' ' ;
+$pind_prop = isset($_POST['pind_prop']) ? $_POST['pind_prop'] : ' ' ;
+$pind_rt = isset($_POST['pind_rt']) ? $_POST['pind_rt'] : ' ' ;
+$pind_rw = isset($_POST['pind_rw']) ? $_POST['pind_rw'] : ' ' ;
+$klas_pind = isset($_POST['klas_pind']) ? $_POST['klas_pind'] : ' ' ;
+$jen_pind = isset($_POST['jen_pind']) ? $_POST['jen_pind'] : ' ' ;
+$stt_kk_tdk_pind = isset($_POST['stt_kk_tdk_pind']) ? $_POST['stt_kk_tdk_pind'] : ' ' ;
+$stt_kk = isset($_POST['stt_kk']) ? $_POST['stt_kk'] : ' ' ;
+$pind_renc = isset($_POST['pind_renc']) ? $_POST['pind_renc'] : ' ' ;
+$pemohon = isset($_POST['pemohon']) ? $_POST['pemohon'] : ' ' ;
 
 
     if (isset ($_POST['Simpan'])){

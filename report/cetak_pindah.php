@@ -5,6 +5,18 @@
 	$id_pend = $_POST['id_pend'];
 	$id_kk = $_POST['id_kk'];
 
+	$sql_data_pdh = "SELECT * FROM `tb_kepindah` WHERE id_kk =".$id_kk;
+				$query_data_pdh = mysqli_query($koneksi, $sql_data_pdh);
+				while($data_pdh = mysqli_fetch_array($query_data_pdh, MYSQLI_BOTH)){
+					$pemohon = $data_pdh["pemohon"];
+					$id_kk_kepindah = $data_pdh["id_kk"];
+					$now = date("Y-m-d");
+					$uniqueid = uniqid(rand());
+
+					$sql_simpan = "INSERT INTO rekap_pdh(id, id_kk, pemohon, tgl_cetak) VALUES('$uniqueid', '$id_kk_kepindah','$pemohon', '$now' )";
+
+					$query_simpan = mysqli_query($koneksi, $sql_simpan);
+				}
 	}
 
 	$tanggal = date("m/y");
@@ -278,7 +290,7 @@
 					<div class="kades">
 						<p>Dikeluarkan Oleh:</p>
 						<p>A.n. Kepala Desa Cisaga</p>
-						<p><b>NO.475/211/II/DS-<?php echo date(Y); ?>/TGL <?php echo date("d-m-Y"); ?></b></p>
+						<p><b>NO.475/211/II/DS-<?php echo date("Y"); ?>/TGL <?php echo date("d-m-Y"); ?></b></p>
 						<p style="margin: 50px 0 0 0; text-transform: uppercase; font-weight:bolder; text-decoration: underline;">Wawan S, SIP</p>
 					</div>
 				</div>

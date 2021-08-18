@@ -160,17 +160,10 @@
 										<p>Data Meninggal</p>
 									</a>
 								</li>
-
-								<li class="nav-item">
-									<a href="?page=data-datang" class="nav-link">
-										<i class="nav-icon far fa-circle text-warning"></i>
-										<p>Data Pendatang</p>
-									</a>
-								</li>
 								<li class="nav-item">
 									<a href="?page=data-pindah" class="nav-link">
 										<i class="nav-icon far fa-circle text-warning"></i>
-										<p>Data Pindah</p>
+										<p>Data Pindah Datang</p>
 									</a>
 								</li>
 							</ul>
@@ -205,15 +198,47 @@
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="?page=suket-datang" class="nav-link">
+									<a href="?page=suket-pindah" class="nav-link">
 										<i class="nav-icon far fa-circle text-warning"></i>
-										<p>Su-Ket Pendatang</p>
+										<p>Su-Ket Pindah Datang</p>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+
+						<li class="nav-item has-treeview">
+							<a href="#" class="nav-link">
+								<i class="nav-icon fas fa-history"></i>
+								<p>
+									Kelola Laporan
+									<i class="fas fa-angle-left right"></i>
+								</p>
+							</a>
+							<ul class="nav nav-treeview">
+
+								<li class="nav-item">
+									<a href="?page=rekap-domisili" class="nav-link">
+										<i class="nav-icon far fa-circle text-warning"></i>
+										<p>Rekap Domisili</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="?page=suket-pindah" class="nav-link">
+									<a href="?page=rekap-lahir" class="nav-link">
 										<i class="nav-icon far fa-circle text-warning"></i>
-										<p>Su-Ket Pindah</p>
+										<p>Rekap Kelahiran</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="?page=rekap-mati" class="nav-link">
+										<i class="nav-icon far fa-circle text-warning"></i>
+										<p>Rekap Kematian</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="?page=rekap-pindah" class="nav-link">
+										<i class="nav-icon far fa-circle text-warning"></i>
+										<p>Rekap Pindah Datang</p>
 									</a>
 								</li>
 							</ul>
@@ -288,17 +313,10 @@
 										<p>Data Meninggal</p>
 									</a>
 								</li>
-
-								<li class="nav-item">
-									<a href="?page=data-datang" class="nav-link">
-										<i class="nav-icon far fa-circle text-warning"></i>
-										<p>Data Pendatang</p>
-									</a>
-								</li>
 								<li class="nav-item">
 									<a href="?page=data-pindah" class="nav-link">
 										<i class="nav-icon far fa-circle text-warning"></i>
-										<p>Data Pindah</p>
+										<p>Data Pindah Datang</p>
 									</a>
 								</li>
 							</ul>
@@ -335,13 +353,7 @@
 								<li class="nav-item">
 									<a href="#" class="nav-link">
 										<i class="nav-icon far fa-circle text-warning"></i>
-										<p>Su-Ket Pendatang</p>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="#" class="nav-link">
-										<i class="nav-icon far fa-circle text-warning"></i>
-										<p>Su-Ket Pindah</p>
+										<p>Su-Ket Pindah Datang</p>
 									</a>
 								</li>
 							</ul>
@@ -384,13 +396,7 @@
 								<li class="nav-item">
 									<a href="#" class="nav-link">
 										<i class="nav-icon far fa-circle text-warning"></i>
-										<p>Data Pendatang</p>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="#" class="nav-link">
-										<i class="nav-icon far fa-circle text-warning"></i>
-										<p>Data Pindah</p>
+										<p>Data Pindah Datang</p>
 									</a>
 								</li>
 							</ul>
@@ -460,6 +466,9 @@
 					break;
 				case 'anggota':
 					include "admin/kartu/anggota.php";
+					break;
+				case 'edit-anggota':
+					include "admin/kartu/edit_anggota.php";
 					break;
 				case 'del-anggota':
 					include "admin/kartu/del_anggota.php";
@@ -557,6 +566,21 @@
 				case 'suket-pindah':
 					include "surat/suket_pindah.php";
 					break;
+
+				//rekap
+				case 'rekap-domisili':
+					include "rekap/rekap_domisili.php";
+					break;
+				case 'rekap-lahir':
+					include "rekap/rekap_kelahiran.php";
+					break;
+				case 'rekap-mati':
+					include "rekap/rekap_kematian.php";
+					break;
+				case 'rekap-pindah':
+					include "rekap/rekap_pindah.php";
+					break;
+
 
 				//prem
 					case 'prem':

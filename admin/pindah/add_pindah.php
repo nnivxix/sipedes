@@ -7,10 +7,10 @@
 		<div class="card-body">
 
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Penduduk</label>
+				<label class="col-sm-2 col-form-label">Data KK</label>
 				<div class="col-sm-6">
 					<select name="id_kk" id="id_pdd" class="form-control select2bs4" required>
-						<option selected="selected">- Pilih Penduduk -</option>
+						<option selected="selected">- Pilih KK -</option>
 
 												<?php
 				// ambil data dari database
@@ -54,11 +54,11 @@
 					</select>
 				</div>
 			</div>
-<p style="font-size: 1.6em; font-weight: 800;">Alamat Tujuan: </p>
+<p style="font-size: 1.6em; font-weight: 800;">Data Pindah: </p>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Alamat Tujuan</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" placeholder="dusun abncd" id="desa" name="alamat_tujuan"
+					<input type="text" class="form-control" placeholder="dusun abncd" id="dusun" name="alamat_tujuan"
 					 required>
 				</div>
 			</div>
@@ -105,7 +105,7 @@
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Nomor Telpon</label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control"  name="pind_tel" >
+				<input type="number" class="form-control"  name="pind_tel"  maxlength="7">
 			</div>
 		</div>
 
@@ -171,6 +171,11 @@
 					</select>
 				</div>
 			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Status</label>
+				<input type="text" name="status" readonly value="Pindah">
+			</div>
+
 
 		</div>
 		<div class="card-footer">
@@ -182,28 +187,29 @@
 
 <?php
 
-	$id_kk = $_POST['id_kk'];
-	$alasan_pindah = $_POST['alasan_pindah'];
-	$alamat_tujuan =   $_POST['alamat_tujuan'];
-	$pind_desa =   $_POST['pind_desa'];
-	$pind_tel = $_POST['pind_tel'];
-	$kode_pos = $_POST['kode_pos'];
-	$pind_kab =   $_POST['pind_kab'];
-	$pind_kec =   $_POST['pind_kec'];
-	$pind_prop =   $_POST['pind_prop'];
-	$pind_rt =   $_POST['pind_rt'];
-	$pind_rw =   $_POST['pind_rw'];
-	$klas_pind =   $_POST['klas_pind'];
-	$jen_pind =   $_POST['jen_pind'];
-	$stt_kk_tdk_pind =   $_POST['stt_kk_tdk_pind'];
-	$stt_kk =   $_POST['stt_kk'];
-	$pind_renc =   $_POST['pind_renc'];
-	$pemohon = $_POST['pemohon'];
+	$id_kk = isset($_POST['id_kk']) ? $_POST['id_kk'] : ' ';
+	$alasan_pindah = isset($_POST['alasan_pindah']) ? $_POST['alasan_pindah'] : ' ' ;
+	$alamat_tujuan = isset($_POST['alamat_tujuan']) ? $_POST['alamat_tujuan'] : ' ' ; 
+	$pind_desa = isset($_POST['pind_desa']) ? $_POST['pind_desa'] : ' ' ;
+	$pind_tel = isset($_POST['pind_tel']) ? $_POST['pind_tel'] : ' ' ;
+	$kode_pos = isset($_POST['kode_pos']) ? $_POST['kode_pos'] : ' ' ;
+	$pind_kab = isset($_POST['pind_kab']) ? $_POST['pind_kab'] : ' ' ;
+	$pind_kec = isset($_POST['pind_kec']) ? $_POST['pind_kec'] : ' ' ;
+	$pind_prop = isset($_POST['pind_prop']) ? $_POST['pind_prop'] : ' ' ;
+	$pind_rt = isset($_POST['pind_rt']) ? $_POST['pind_rt'] : ' ' ;
+	$pind_rw = isset($_POST['pind_rw']) ? $_POST['pind_rw'] : ' ' ;
+	$klas_pind = isset($_POST['klas_pind']) ? $_POST['klas_pind'] : ' ' ;
+	$jen_pind = isset($_POST['jen_pind']) ? $_POST['jen_pind'] : ' ' ;
+	$stt_kk_tdk_pind = isset($_POST['stt_kk_tdk_pind']) ? $_POST['stt_kk_tdk_pind'] : ' ' ;
+	$stt_kk = isset($_POST['stt_kk']) ? $_POST['stt_kk'] : ' ' ;
+	$pind_renc = isset($_POST['pind_renc']) ? $_POST['pind_renc'] : ' ' ;
+	$pemohon = isset($_POST['pemohon']) ? $_POST['pemohon'] : ' ' ;
+	$status = isset($_POST['status']) ? $_POST['status'] : ' ' ;
     if (isset ($_POST['Simpan'])){
     //mulai proses simpan data
 
 
-    	$sql_pindah = "INSERT INTO `tb_kepindah` (`alasan_pindah`, `alamat_tujuan`, `pind_desa`, `pind_tel`, `pind_kab`, `pind_prop`, `pind_rt`, `pind_rw`, `klas_pind`, `jen_pind`, `stt_kk_tdk_pind`, `stt_kk`, `pind_renc`, `kode_pos`, `pind_kec`, `id_kk`, `pemohon`) VALUES ('$alasan_pindah', '$alamat_tujuan', '$pind_desa', '$pind_tel', '$pind_kab', '$pind_prop', '$pind_rt', '$pind_rw', '$klas_pind', '$jen_pind', '$stt_kk_tdk_pind', '$stt_kk', '$pind_renc', $kode_pos, '$pind_kec', '$id_kk', '$pemohon')";
+    	$sql_pindah = "INSERT INTO `tb_kepindah` (`alasan_pindah`, `alamat_tujuan`, `pind_desa`, `pind_tel`, `pind_kab`, `pind_prop`, `pind_rt`, `pind_rw`, `klas_pind`, `jen_pind`, `stt_kk_tdk_pind`, `stt_kk`, `pind_renc`, `kode_pos`, `pind_kec`, `id_kk`, `pemohon`, `status`) VALUES ('$alasan_pindah', '$alamat_tujuan', '$pind_desa', '$pind_tel', '$pind_kab', '$pind_prop', '$pind_rt', '$pind_rw', '$klas_pind', '$jen_pind', '$stt_kk_tdk_pind', '$stt_kk', '$pind_renc', $kode_pos, '$pind_kec', '$id_kk', '$pemohon', '$status')";
 
 		$query_simpan = mysqli_query($koneksi, $sql_pindah);
 		

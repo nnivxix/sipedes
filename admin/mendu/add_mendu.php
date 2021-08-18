@@ -63,7 +63,7 @@
 
     if (isset ($_POST['Simpan'])){
     //mulai proses simpan data
-        $sql_simpan = "INSERT INTO tb_mendu (id_pdd, tgl_mendu, sebab) VALUES (
+        $sql_simpan = "INSERT INTO tb_mendu (id_pdd, tgl_mendu,tempat_mendu, sebab) VALUES (
 			'".$_POST['id_pdd']."',
             '".$_POST['tgl_mendu']."',
             '".$_POST['tempat_mendu']."',

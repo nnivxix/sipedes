@@ -3,6 +3,7 @@
   $sql = $koneksi->query("SELECT COUNT(id_pend) as pend  from tb_pdd where status='Ada'");
   while ($data= $sql->fetch_assoc()) {
     $pend=$data['pend'];
+	//var_dump($data);
   }
 
   $sql = $koneksi->query("SELECT COUNT(id_kk) as kartu  from tb_kk");
@@ -159,34 +160,16 @@
 		</div>
 	</div>
 	<!-- ./col -->
+	<!-- ./col -->
 	<div class="col-lg-3 col-6">
 		<!-- small box -->
 		<div class="small-box bg-red">
 			<div class="inner">
 				<h3>
-					<?php echo $datang;  ?>
-				</h3>
-
-				<p>Pendatang</p>
-			</div>
-			<div class="icon">
-				<i class="ion ion-android-download"></i>
-			</div>
-			<a href="index.php?page=data-datang" class="small-box-footer">Selengkapnya
-				<i class="fas fa-arrow-circle-right"></i>
-			</a>
-		</div>
-	</div>
-	<!-- ./col -->
-	<div class="col-lg-3 col-6">
-		<!-- small box -->
-		<div class="small-box bg-warning">
-			<div class="inner">
-				<h3>
 					<?php echo $pindah;  ?>
 				</h3>
 
-				<p>Pindah</p>
+				<p>Pindah Datang</p>
 			</div>
 			<div class="icon">
 				<i class="ion ion-android-upload"></i>
